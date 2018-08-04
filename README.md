@@ -10,11 +10,11 @@ iOcari app
 
 **Networking errors**
 
-Remove all network adapters and make sure the IPv4 ip is being used by react native.
+- Remove all network adapters and make sure the IPv4 ip is being used by react native.
 
-Setting `REACT_NATIVE_PACKAGER_HOSTNAME` to the correct ip can also help.
+- Setting `REACT_NATIVE_PACKAGER_HOSTNAME` to the correct ip can also help.
 
-If problem still persists or you get a `packager is not running at` try running the react native using Expo XDE.
+- If problem still persists or you get a `packager is not running at` try running the react native using Expo XDE.
 
 **Entry point**
 
