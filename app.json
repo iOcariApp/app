@@ -1,7 +1,7 @@
 {
   "expo": {
     "sdkVersion": "27.0.0",
-    "entryPoint": "./src/pages/Home/Home.js",
+    "entryPoint": "./src/Routes.js",
     "splash": {
       "image": "./assets/splash.png",
       "backgroundColor": "#000000"
