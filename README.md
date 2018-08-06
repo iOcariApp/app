@@ -7,7 +7,9 @@ iOcari app
 1.  create-react-native-app
 2.  Set app entry point
 3.  Set splash screen
-4.  Set routing
+4.  Set routing (react-navigation)
+5.  Added react-native-elements
+6.  Set aliases
 
 ## Notes
 
@@ -56,6 +58,22 @@ Add a npm script like `"link": "react-native link"`.
 
 Render `<StatusBar hidden />` in the component.
 
+**Aliases**
+
+`npm install --save babel babel-plugin-module-alias`
+
+In `.babelrc`:
+
+```json
+  "plugins": [[
+    "module-alias", [
+      { "src": "./app", "expose": "app" },
+      { "src": "./app/resources/icon", "expose": "icon" }
+      ]
+   ]]
+ }
+```
+
 ## Errors and solutions
 
 - "Trying to add a root view with an explicit id already set"
@@ -66,8 +84,13 @@ Render `<StatusBar hidden />` in the component.
 
 => You need to eject the app in order to use `link` command
 
+- "TypeError: In this environment the sources for assign MUST be an object."
+
+=> Use Stylesheet.flatten to concatenate styles objects instead of spread operator.
+
 ## Resources
 
 [Official docs](https://facebook.github.io/react-native/docs/getting-started)
 [Search built components](https://js.coach/?collection=React+Native)
 [react-natigation docs](https://reactnavigation.org/docs/en/getting-started.html)
+[react-native-elements components](https://react-native-training.github.io/react-native-elements/docs/0.19.0/overview.html)
