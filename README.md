@@ -13,17 +13,14 @@ iOcari app
 
 ## Notes
 
-**Networking errors**
+### Networking errors
 
-- Remove all network adapters and make sure the IPv4 ip is being used by react native.
+1.  Remove all network adapters and make sure the IPv4 ip is being used by react native.
+2.  Setting `REACT_NATIVE_PACKAGER_HOSTNAME` to the correct ip can also help.
+3.  If problem still persists or you get a `packager is not running at` try running the react native using Expo XDE.
+4.  If the problem persists even in Expo XDE, got the settings icon in the app instance, select "Host" -> "Tunnel" option and search for that url in the Expo app in the explore section.
 
-- Setting `REACT_NATIVE_PACKAGER_HOSTNAME` to the correct ip can also help.
-
-- If problem still persists or you get a `packager is not running at` try running the react native using Expo XDE.
-
-- If the problem persists even in Expo XDE, got the settings icon in the app instance, select "Host" -> "Tunnel" option and search for that url in the Expo app in the explore section.
-
-**Entry point**
+### Entry point
 
 `app.json`
 
@@ -48,19 +45,19 @@ class App extends Component {
 export default Expo.registerRootComponent(App);
 ```
 
-**Splash screen**
+### Splash screen
 
 [Expo docs](https://docs.expo.io/versions/latest/guides/splash-screens.html)
 
-**Link libraries**
+### Link libraries
 
 Add a npm script like `"link": "react-native link"`.
 
-**Hide status bar**
+### Hide status bar
 
 Render `<StatusBar hidden />` in the component.
 
-**Aliases**
+### Aliases
 
 `npm install --save babel babel-plugin-module-alias`
 
@@ -78,7 +75,7 @@ In `.babelrc`:
 
 Make sure to add the babel config in all environments.
 
-**Multiple styles**
+### Multiple styles
 
 Set the `style` attribute as an array of the styles.
 
@@ -86,31 +83,30 @@ i.e: `style={[styles.padding, styles.content]}`
 
 ## Errors and solutions
 
-- "Trying to add a root view with an explicit id already set"
+**"Trying to add a root view with an explicit id already set"**
 
 => Reload the app
 
-- "`react-native link` only produces `Scanning folders for symlinks in node_modules` message"
+**"`react-native link` only produces `Scanning folders for symlinks in node_modules` log"**
 
 => You need to eject the app in order to use `link` command
 
-- "TypeError: In this environment the sources for assign MUST be an object."
+**"TypeError: In this environment the sources for assign MUST be an object."**
 
 => Use Stylesheet.flatten to concatenate styles objects instead of spread operator.
 
-- "TypeError: undefined is not a function (evaluating 'singleValue.stopTracking()')"
+**"TypeError: undefined is not a function (evaluating 'singleValue.stopTracking()')"**
 
 => Initial value of the animation must be est using `new Animated.Value()`.
 
-- While building or publishing `Error: connect ECONNREFUSED 127.0.0.1:19001`
+**While building or publishing `Error: connect ECONNREFUSED 127.0.0.1:19001`**
 
 => Start manually the packager and run again the build/publish command.
 
 ## Resources
 
-[Official docs](https://facebook.github.io/react-native/docs/getting-started)
-[Search built components](https://js.coach/?collection=React+Native)
-[react-natigation docs](https://reactnavigation.org/docs/en/getting-started.html)
-[react-native-elements components](https://react-native-training.github.io/react-native-elements/docs/0.19.0/overview.html)
-[React made native easy](https://www.reactnative.guide/)
-[How to build using Expo](https://docs.expo.io/versions/latest/distribution/building-standalone-apps#__next)
+- [Official docs](https://facebook.github.io/react-native/docs/getting-started)
+- [react-natigation docs](https://reactnavigation.org/docs/en/getting-started.html)
+- [react-native-elements components](https://react-native-training.github.io/react-native-elements/docs/0.19.0/overview.html)
+- [React made native easy](https://www.reactnative.guide/)
+- [How to build using Expo](https://docs.expo.io/versions/latest/distribution/building-standalone-apps#__next)
