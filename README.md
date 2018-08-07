@@ -21,6 +21,8 @@ iOcari app
 
 - If problem still persists or you get a `packager is not running at` try running the react native using Expo XDE.
 
+- If the problem persists even in Expo XDE, got the settings icon in the app instance, select "Host" -> "Tunnel" option and search for that url in the Expo app in the explore section.
+
 **Entry point**
 
 `app.json`
@@ -74,6 +76,8 @@ In `.babelrc`:
  }
 ```
 
+Make sure to add the babel config in all environments.
+
 **Multiple styles**
 
 Set the `style` attribute as an array of the styles.
@@ -98,6 +102,10 @@ i.e: `style={[styles.padding, styles.content]}`
 
 => Initial value of the animation must be est using `new Animated.Value()`.
 
+- While building or publishing `Error: connect ECONNREFUSED 127.0.0.1:19001`
+
+=> Start manually the packager and run again the build/publish command.
+
 ## Resources
 
 [Official docs](https://facebook.github.io/react-native/docs/getting-started)
@@ -105,3 +113,4 @@ i.e: `style={[styles.padding, styles.content]}`
 [react-natigation docs](https://reactnavigation.org/docs/en/getting-started.html)
 [react-native-elements components](https://react-native-training.github.io/react-native-elements/docs/0.19.0/overview.html)
 [React made native easy](https://www.reactnative.guide/)
+[How to build using Expo](https://docs.expo.io/versions/latest/distribution/building-standalone-apps#__next)

@@ -17,6 +17,7 @@ const MyButton = ({ style, backgroundColor, ...rest }) => (
     large
     containerViewStyle={StyleSheet.flatten([style, styles.main])}
     borderRadius={7}
+    fontWeight="bold"
     backgroundColor={backgroundColor}
     {...rest}
   />

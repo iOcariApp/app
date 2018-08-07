@@ -1,18 +1,18 @@
 {
   "presets": ["babel-preset-expo"],
+  "plugins": [
+    [
+      "module-alias",
+      [
+        { "src": "./src/components", "expose": "components" },
+        { "src": "./assets", "expose": "assets" },
+        { "src": "./src/variables.js", "expose": "variables" }
+      ]
+    ]
+  ],
   "env": {
     "development": {
-      "plugins": [
-        "transform-react-jsx-source",
-        [
-          "module-alias",
-          [
-            { "src": "./src/components", "expose": "components" },
-            { "src": "./assets", "expose": "assets" },
-            { "src": "./src/variables.js", "expose": "variables" }
-          ]
-        ]
-      ]
+      "plugins": ["transform-react-jsx-source"]
     }
   }
 }

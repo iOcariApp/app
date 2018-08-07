@@ -14,7 +14,7 @@ import { Icon } from "react-native-elements";
 import FillingBorder from "components/FillingBorder";
 import { green } from "variables";
 
-const ANIMATION_DURATION = 300;
+const ANIMATION_DURATION = 250;
 
 class MyTextInput extends React.PureComponent {
   state = {
@@ -34,6 +34,7 @@ class MyTextInput extends React.PureComponent {
   onFocus = () => {
     const { focused } = this.state;
     if (!focused) {
+      if (this._textInput) this._textInput.focus();
       this.setState({ focused: true });
 
       Animated.timing(this.state.labelSize, {
@@ -74,36 +75,43 @@ class MyTextInput extends React.PureComponent {
 
     return (
       <View style={styles.main} onLayout={this.onLayout}>
-        <View style={styles.inputMain}>
-          {icon && <Icon containerStyle={styles.icon} size={24} name={icon} />}
+        <TouchableWithoutFeedback onPress={this.onFocus}>
+          <View style={styles.inputMain}>
+            {icon && (
+              <Icon containerStyle={styles.icon} size={24} name={icon} />
+            )}
 
-          <View style={styles.input}>
-            <Animated.Text
-              style={[
-                styles.label,
-                {
-                  color: focused ? green : "#7C7C7C",
-                  top: labelSize.interpolate({
-                    inputRange: [12, 16],
-                    outputRange: [0, 14],
-                  }),
-                  fontSize: labelSize,
-                },
-              ]}
-            >
-              {label}
-            </Animated.Text>
-            <TextInput
-              style={styles.inputText}
-              value={value}
-              underlineColorAndroid={"transparent"}
-              onChangeText={this.onChangeText}
-              onFocus={this.onFocus}
-              onBlur={this.onBlur}
-              {...rest}
-            />
+            <View style={styles.input}>
+              <Animated.Text
+                style={[
+                  styles.label,
+                  {
+                    color: focused ? green : "#7C7C7C",
+                    top: labelSize.interpolate({
+                      inputRange: [12, 16],
+                      outputRange: [0, 14],
+                    }),
+                    fontSize: labelSize,
+                  },
+                ]}
+              >
+                {label}
+              </Animated.Text>
+              <TextInput
+                ref={node => {
+                  this._textInput = node;
+                }}
+                style={styles.inputText}
+                value={value}
+                underlineColorAndroid={"transparent"}
+                onChangeText={this.onChangeText}
+                onFocus={this.onFocus}
+                onBlur={this.onBlur}
+                {...rest}
+              />
+            </View>
           </View>
-        </View>
+        </TouchableWithoutFeedback>
         {focused && (
           <View
             style={[
