@@ -74,6 +74,12 @@ In `.babelrc`:
  }
 ```
 
+**Multiple styles**
+
+Set the `style` attribute as an array of the styles.
+
+i.e: `style={[styles.padding, styles.content]}`
+
 ## Errors and solutions
 
 - "Trying to add a root view with an explicit id already set"
@@ -88,9 +94,14 @@ In `.babelrc`:
 
 => Use Stylesheet.flatten to concatenate styles objects instead of spread operator.
 
+- "TypeError: undefined is not a function (evaluating 'singleValue.stopTracking()')"
+
+=> Initial value of the animation must be est using `new Animated.Value()`.
+
 ## Resources
 
 [Official docs](https://facebook.github.io/react-native/docs/getting-started)
 [Search built components](https://js.coach/?collection=React+Native)
 [react-natigation docs](https://reactnavigation.org/docs/en/getting-started.html)
 [react-native-elements components](https://react-native-training.github.io/react-native-elements/docs/0.19.0/overview.html)
+[React made native easy](https://www.reactnative.guide/)

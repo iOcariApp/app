@@ -14,16 +14,32 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#1F253D",
   },
+  padding: {
+    paddingRight: 30,
+    paddingLeft: 30,
+  },
+  content: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+  },
   logo: {
     marginTop: 42,
   },
   socialLogin: {
     flexDirection: "row",
     justifyContent: "space-between",
+    marginTop: 20,
+    marginBottom: 36,
   },
   socialIcon: {
     width: 60,
     height: 60,
+  },
+  socialIconLeft: {
+    marginLeft: 30,
   },
   google: {
     backgroundColor: "#DC4E41",
@@ -35,6 +51,10 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-around",
     alignItems: "center",
+  },
+  footerText: {
+    fontSize: 16,
+    marginBottom: -20,
   },
 });
 
@@ -57,31 +77,46 @@ class Login extends React.PureComponent {
     return (
       <View style={styles.main}>
         <StatusBar hidden />
-        <Image
-          style={styles.logo}
-          source={require("assets/plain-logo/plain-logo.png")}
-        />
-
-        <TextInput label="Email" icon="email" />
-        <TextInput label="Contraseña" icon="lock" />
-        <Button title="ACCEDER" />
-
-        <View style={styles.socialLogin}>
-          <SocialIcon
-            type="facebook"
-            raised={false}
-            style={styles.socialIcon}
+        <View style={[styles.padding, styles.content]}>
+          <Image
+            style={styles.logo}
+            source={require("assets/plain-logo/plain-logo.png")}
           />
-          <SocialIcon
-            type="google"
-            raised={false}
-            iconStyle={styles.google}
-            style={StyleSheet.flatten([styles.google, styles.socialIcon])}
-          />
-          <SocialIcon type="twitter" raised={false} style={styles.socialIcon} />
+
+          <View>
+            <TextInput
+              keyboardType="email-address"
+              label="Email"
+              icon="email"
+            />
+            <TextInput secureTextEntry label="Contraseña" icon="lock" />
+          </View>
+          <Button title="ACCEDER" />
+
+          <View style={styles.socialLogin}>
+            <SocialIcon
+              button
+              type="facebook"
+              raised={false}
+              style={styles.socialIcon}
+            />
+            <SocialIcon
+              button
+              type="google"
+              raised={false}
+              iconStyle={styles.google}
+              style={[styles.google, styles.socialIcon, styles.socialIconLeft]}
+            />
+            <SocialIcon
+              button
+              type="twitter"
+              raised={false}
+              style={[styles.socialIcon, styles.socialIconLeft]}
+            />
+          </View>
         </View>
-        <View style={styles.footer}>
-          <Text>¿No tienes cuenta aún?</Text>
+        <View style={[styles.padding, styles.footer]}>
+          <Text style={styles.footerText}>¿No tienes cuenta aún?</Text>
           <Button title="CREA UNA CUENTA AHORA" backgroundColor="#0277BD" />
         </View>
       </View>
