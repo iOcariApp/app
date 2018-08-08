@@ -1,7 +1,8 @@
 import React from "react";
 import { View, StatusBar, Image, Text, StyleSheet } from "react-native";
-
 import { SocialIcon } from "react-native-elements";
+
+import plainLogo from "assets/plain-logo/plain-logo.png";
 
 import TextInput from "components/TextInput";
 import Button from "components/Button";
@@ -78,18 +79,23 @@ class Login extends React.PureComponent {
       <View style={styles.main}>
         <StatusBar hidden />
         <View style={[styles.padding, styles.content]}>
-          <Image
-            style={styles.logo}
-            source={require("assets/plain-logo/plain-logo.png")}
-          />
+          <Image style={styles.logo} source={plainLogo} />
 
           <View>
             <TextInput
               keyboardType="email-address"
+              value={email}
+              onChangeText={this.onChangeEmail}
               label="Email"
               icon="email"
             />
-            <TextInput secureTextEntry label="Contraseña" icon="lock" />
+            <TextInput
+              secureTextEntry
+              value={password}
+              onChangeText={this.onChangePassword}
+              label="Contraseña"
+              icon="lock"
+            />
           </View>
           <Button title="ACCEDER" />
 

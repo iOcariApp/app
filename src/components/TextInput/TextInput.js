@@ -18,7 +18,6 @@ const ANIMATION_DURATION = 250;
 
 class MyTextInput extends React.PureComponent {
   state = {
-    value: "",
     showError: false,
     focused: false,
     myWidth: 2,
@@ -26,9 +25,12 @@ class MyTextInput extends React.PureComponent {
   };
 
   onChangeText = value => {
+    // Validation time out
     clearTimeout(this._checkTimeout);
     this._checkTimeout = setTimeout(this.checkValue, 2000);
-    this.setState({ value });
+
+    // Update value
+    this.props.onChangeText(value);
   };
 
   onFocus = () => {
@@ -45,7 +47,7 @@ class MyTextInput extends React.PureComponent {
   };
 
   onBlur = () => {
-    const { value } = this.state;
+    const { value } = this.props;
     if (value === "") {
       this.setState({ focused: false });
 
@@ -62,16 +64,19 @@ class MyTextInput extends React.PureComponent {
   };
 
   checkValue = () => {
-    const { value } = this.state;
-    const { validation } = this.props;
+    const { value, validation } = this.props;
 
     const validValue = validation(value);
     this.setState({ showError: !validValue });
   };
 
+  ref = node => {
+    this._textInput = node;
+  };
+
   render = () => {
-    const { value, showError, focused, myWidth, labelSize } = this.state;
-    const { icon, label, error, ...rest } = this.props;
+    const { showError, focused, myWidth, labelSize } = this.state;
+    const { value, icon, label, error, ...rest } = this.props;
 
     return (
       <View style={styles.main} onLayout={this.onLayout}>
@@ -98,9 +103,7 @@ class MyTextInput extends React.PureComponent {
                 {label}
               </Animated.Text>
               <TextInput
-                ref={node => {
-                  this._textInput = node;
-                }}
+                ref={this.ref}
                 style={styles.inputText}
                 value={value}
                 underlineColorAndroid={"transparent"}
@@ -129,9 +132,11 @@ class MyTextInput extends React.PureComponent {
 }
 
 MyTextInput.propTypes = {
+  value: PropTypes.string.isRequired,
   icon: PropTypes.string,
   label: PropTypes.string,
   error: PropTypes.string,
+  onChangeText: PropTypes.func.isRequired,
   validation: PropTypes.func,
 };
 MyTextInput.defaultProps = {
