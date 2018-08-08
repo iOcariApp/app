@@ -1,5 +1,9 @@
 import { StyleSheet } from "react-native";
-import { colors } from "theme";
+import { colors, fontSizes } from "theme";
+
+const baseLabel = () => ({
+  position: "relative",
+});
 
 export default StyleSheet.create({
   main: {
@@ -22,7 +26,7 @@ export default StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     borderBottomWidth: 1,
-    borderColor: "#7C7C7C",
+    borderColor: colors.grey,
   },
   icon: {
     marginRight: 7,
@@ -33,11 +37,15 @@ export default StyleSheet.create({
     flex: 1,
   },
   label: {
-    position: "relative",
+    ...baseLabel(),
+    color: colors.grey,
+  },
+  labelFocused: {
+    ...baseLabel(),
     color: colors.green,
   },
   inputText: {
-    fontSize: 16,
+    fontSize: fontSizes.medium,
   },
   bottomBorder: {
     width: "100%",
@@ -46,9 +54,9 @@ export default StyleSheet.create({
     left: "50%",
   },
   validation: {
+    fontSize: fontSizes.small,
+    color: "white",
     marginLeft: 15,
     marginTop: 5,
-    fontSize: 12,
-    color: "white",
   },
 });

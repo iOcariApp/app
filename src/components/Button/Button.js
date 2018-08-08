@@ -9,7 +9,7 @@ import { colors } from "theme";
 const MyButton = ({ style, backgroundColor, ...rest }) => (
   <Button
     large
-    containerViewStyle={StyleSheet.flatten([style, styles.main])}
+    containerViewStyle={[style, styles.main]}
     borderRadius={7}
     fontWeight="bold"
     backgroundColor={backgroundColor}

@@ -12,9 +12,10 @@ import styles from "./TextInput.style";
 import { Icon } from "react-native-elements";
 
 import FillingBorder from "components/FillingBorder";
-import { colors } from "theme";
 
 const ANIMATION_DURATION = 250;
+const ANIMATION_FORWARDS = "forward";
+const ANIMATION_BACKWARDS = "backward";
 
 class MyTextInput extends React.PureComponent {
   state = {
@@ -39,10 +40,7 @@ class MyTextInput extends React.PureComponent {
       if (this._textInput) this._textInput.focus();
       this.setState({ focused: true });
 
-      Animated.timing(this.state.labelSize, {
-        toValue: 12,
-        duration: ANIMATION_DURATION,
-      }).start();
+      this.playAnimation(ANIMATION_FORWARDS);
     }
   };
 
@@ -51,16 +49,20 @@ class MyTextInput extends React.PureComponent {
     if (value === "") {
       this.setState({ focused: false });
 
-      Animated.timing(this.state.labelSize, {
-        toValue: 16,
-        duration: ANIMATION_DURATION,
-      }).start();
+      this.playAnimation(ANIMATION_BACKWARDS);
     }
   };
 
   onLayout = event => {
     const { width } = event.nativeEvent.layout;
     this.setState({ myWidth: width });
+  };
+
+  playAnimation = mode => {
+    Animated.timing(this.state.labelSize, {
+      toValue: mode === ANIMATION_FORWARDS ? 12 : 16,
+      duration: ANIMATION_DURATION,
+    }).start();
   };
 
   checkValue = () => {
@@ -85,13 +87,11 @@ class MyTextInput extends React.PureComponent {
             {icon && (
               <Icon containerStyle={styles.icon} size={24} name={icon} />
             )}
-
             <View style={styles.input}>
               <Animated.Text
                 style={[
-                  styles.label,
+                  focused ? styles.labelFocused : styles.label,
                   {
-                    color: focused ? colors.green : "#7C7C7C",
                     top: labelSize.interpolate({
                       inputRange: [12, 16],
                       outputRange: [0, 14],

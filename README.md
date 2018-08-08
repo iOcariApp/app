@@ -115,7 +115,7 @@ class Foo extends Component {
 
 **"TypeError: In this environment the sources for assign MUST be an object."**
 
-=> Use Stylesheet.flatten to concatenate styles objects instead of spread operator.
+=> Use Stylesheet.flatten to mix styles objects instead of spread operator or plain array of objects for multiple styling.
 
 **"TypeError: undefined is not a function (evaluating 'singleValue.stopTracking()')"**
 

@@ -29,7 +29,6 @@ class Login extends React.PureComponent {
         <StatusBar hidden />
         <View style={[styles.padding, styles.content]}>
           <Image style={styles.logo} source={plainLogo} />
-
           <View>
             <TextInput
               keyboardType="email-address"
@@ -47,7 +46,6 @@ class Login extends React.PureComponent {
             />
           </View>
           <Button title="ACCEDER" />
-
           <View style={styles.socialLogin}>
             <SocialIcon
               button

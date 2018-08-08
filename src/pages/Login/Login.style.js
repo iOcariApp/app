@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { padding, fontSizes } from "theme";
 
 export default StyleSheet.create({
   main: {
@@ -9,8 +10,8 @@ export default StyleSheet.create({
     backgroundColor: "#1F253D",
   },
   padding: {
-    paddingRight: 30,
-    paddingLeft: 30,
+    paddingRight: padding,
+    paddingLeft: padding,
   },
   content: {
     flex: 1,
@@ -47,7 +48,7 @@ export default StyleSheet.create({
     alignItems: "center",
   },
   footerText: {
-    fontSize: 16,
+    fontSize: fontSizes.medium,
     marginBottom: -20,
   },
 });
