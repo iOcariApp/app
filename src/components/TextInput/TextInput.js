@@ -13,33 +13,34 @@ import { Icon } from "react-native-elements";
 
 import FillingBorder from "components/FillingBorder";
 
+const VALIDATION_TIMEOUT = 1000;
 const ANIMATION_DURATION = 250;
 const ANIMATION_FORWARDS = "forward";
 const ANIMATION_BACKWARDS = "backward";
 
 class MyTextInput extends React.PureComponent {
   state = {
-    showError: false,
     focused: false,
+    showError: false,
     myWidth: 2,
     labelSize: new Animated.Value(16),
   };
 
   onChangeText = value => {
     // Validation time out
-    clearTimeout(this._checkTimeout);
-    this._checkTimeout = setTimeout(this.checkValue, 2000);
+    this.setValidationTimeout();
 
     // Update value
-    this.props.onChangeText(value);
+    this.props.onChangeValue(value);
   };
 
   onFocus = () => {
     const { focused } = this.state;
     if (!focused) {
-      if (this._textInput) this._textInput.focus();
+      if (this._textInput) {
+        this._textInput.focus();
+      }
       this.setState({ focused: true });
-
       this.playAnimation(ANIMATION_FORWARDS);
     }
   };
@@ -48,7 +49,6 @@ class MyTextInput extends React.PureComponent {
     const { value } = this.props;
     if (value === "") {
       this.setState({ focused: false });
-
       this.playAnimation(ANIMATION_BACKWARDS);
     }
   };
@@ -56,6 +56,11 @@ class MyTextInput extends React.PureComponent {
   onLayout = event => {
     const { width } = event.nativeEvent.layout;
     this.setState({ myWidth: width });
+  };
+
+  setValidationTimeout = () => {
+    clearTimeout(this._checkTimeout);
+    this._checkTimeout = setTimeout(this.checkValue, VALIDATION_TIMEOUT);
   };
 
   playAnimation = mode => {
@@ -82,49 +87,51 @@ class MyTextInput extends React.PureComponent {
 
     return (
       <View style={styles.main} onLayout={this.onLayout}>
-        <TouchableWithoutFeedback onPress={this.onFocus}>
-          <View style={styles.inputMain}>
-            {icon && (
-              <Icon containerStyle={styles.icon} size={24} name={icon} />
-            )}
-            <View style={styles.input}>
-              <Animated.Text
-                style={[
-                  focused ? styles.labelFocused : styles.label,
-                  {
-                    top: labelSize.interpolate({
-                      inputRange: [12, 16],
-                      outputRange: [0, 14],
-                    }),
-                    fontSize: labelSize,
-                  },
-                ]}
-              >
-                {label}
-              </Animated.Text>
-              <TextInput
-                ref={this.ref}
-                style={styles.inputText}
-                value={value}
-                underlineColorAndroid={"transparent"}
-                onChangeText={this.onChangeText}
-                onFocus={this.onFocus}
-                onBlur={this.onBlur}
-                {...rest}
-              />
+        <View style={styles.content}>
+          <TouchableWithoutFeedback onPress={this.onFocus}>
+            <View style={styles.inputMain}>
+              {icon && (
+                <Icon containerStyle={styles.icon} size={24} name={icon} />
+              )}
+              <View style={styles.input}>
+                <Animated.Text
+                  style={[
+                    focused ? styles.labelFocused : styles.label,
+                    {
+                      top: labelSize.interpolate({
+                        inputRange: [12, 16],
+                        outputRange: [0, 14],
+                      }),
+                      fontSize: labelSize,
+                    },
+                  ]}
+                >
+                  {label}
+                </Animated.Text>
+                <TextInput
+                  ref={this.ref}
+                  style={styles.inputText}
+                  value={value}
+                  underlineColorAndroid={"transparent"}
+                  onChangeText={this.onChangeText}
+                  onFocus={this.onFocus}
+                  onBlur={this.onBlur}
+                  {...rest}
+                />
+              </View>
             </View>
-          </View>
-        </TouchableWithoutFeedback>
-        {focused && (
-          <View
-            style={[
-              styles.bottomBorder,
-              { transform: [{ translateX: -myWidth / 2 }] },
-            ]}
-          >
-            <FillingBorder duration={ANIMATION_DURATION} />
-          </View>
-        )}
+          </TouchableWithoutFeedback>
+          {focused && (
+            <View
+              style={[
+                styles.bottomBorder,
+                { transform: [{ translateX: -myWidth / 2 }] },
+              ]}
+            >
+              <FillingBorder duration={ANIMATION_DURATION} />
+            </View>
+          )}
+        </View>
         {showError && <Text style={styles.validation}>{error}</Text>}
       </View>
     );
@@ -136,7 +143,7 @@ MyTextInput.propTypes = {
   icon: PropTypes.string,
   label: PropTypes.string,
   error: PropTypes.string,
-  onChangeText: PropTypes.func.isRequired,
+  onChangeValue: PropTypes.func.isRequired,
   validation: PropTypes.func,
 };
 MyTextInput.defaultProps = {

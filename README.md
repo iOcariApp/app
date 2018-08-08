@@ -125,6 +125,27 @@ class Foo extends Component {
 
 => Start manually the packager and run again the build/publish command.
 
+**When testing "TypeError: Cannot read property 'Object.<anonymous>' of null"**
+
+=> You are probably using `Animated` library without mocking it.
+
+```jsx
+jest.mock("Animated", () => {
+  const ActualAnimated = require.requireActual("Animated");
+  return {
+    ...ActualAnimated,
+    timing: (value, config) => ({
+      start: callback => {
+        value.setValue(config.toValue);
+        if (callback) {
+          callback();
+        }
+      },
+    }),
+  };
+});
+```
+
 ## Resources
 
 - [Official docs](https://facebook.github.io/react-native/docs/getting-started)

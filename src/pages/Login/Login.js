@@ -33,14 +33,14 @@ class Login extends React.PureComponent {
             <TextInput
               keyboardType="email-address"
               value={email}
-              onChangeText={this.onChangeEmail}
+              onChangeValue={this.onChangeEmail}
               label="Email"
               icon="email"
             />
             <TextInput
               secureTextEntry
               value={password}
-              onChangeText={this.onChangePassword}
+              onChangeValue={this.onChangePassword}
               label="Contraseña"
               icon="lock"
             />

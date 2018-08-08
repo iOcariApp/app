@@ -5,11 +5,16 @@
   "devDependencies": {
     "babel-eslint": "^8.2.6",
     "babel-plugin-module-alias": "^1.6.0",
+    "enzyme": "^3.4.0",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "enzyme-react-16-adapter-setup": "^0.1.0",
     "eslint": "^5.3.0",
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-react-native": "^3.2.1",
     "husky": "^0.14.3",
+    "jest-enzyme": "^6.0.2",
     "jest-expo": "~27.0.0",
+    "react-dom": "^16.4.2",
     "react-native-scripts": "1.14.0",
     "react-test-renderer": "16.3.1"
   },
@@ -19,7 +24,8 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "jest",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
     "prettier": "prettier --config \"./.prettierrc.js\" --write \"./src/**/*.@(js|scss)\"",
     "lint": "eslint ./src/",
     "lint:fix": "eslint ./src/ --fix",
@@ -33,7 +39,12 @@
       "global": {
         "statements": 80
       }
-    }
+    },
+    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+    "setupFiles": [
+      "enzyme-react-16-adapter-setup",
+      "./__test__/setup.js"
+    ]
   },
   "dependencies": {
     "expo": "^27.0.1",

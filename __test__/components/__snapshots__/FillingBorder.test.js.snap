@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  collapsable={undefined}
+  style={
+    Object {
+      "borderBottomWidth": 4,
+      "borderColor": "#4DB6AC",
+      "flex": 1,
+      "transform": Array [
+        Object {
+          "scaleX": 1,
+        },
+      ],
+    }
+  }
+/>
+`;

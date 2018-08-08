@@ -7,11 +7,14 @@ const baseLabel = () => ({
 
 export default StyleSheet.create({
   main: {
-    flexDirection: "column",
-    justifyContent: "center",
     width: "100%",
     marginBottom: 17,
+  },
+  content: {
+    width: "100%",
     position: "relative",
+    flexDirection: "column",
+    justifyContent: "center",
   },
   inputMain: {
     flexDirection: "row",
