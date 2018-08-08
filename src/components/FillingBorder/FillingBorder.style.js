@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native";
-import { green } from "variables";
+import { colors } from "theme";
 
 export default StyleSheet.create({
   main: {
     flex: 1,
     borderBottomWidth: 4,
-    borderColor: green,
+    borderColor: colors.green,
   },
 });

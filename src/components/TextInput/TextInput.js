@@ -12,7 +12,7 @@ import styles from "./TextInput.style";
 import { Icon } from "react-native-elements";
 
 import FillingBorder from "components/FillingBorder";
-import { green } from "variables";
+import { colors } from "theme";
 
 const ANIMATION_DURATION = 250;
 
@@ -91,7 +91,7 @@ class MyTextInput extends React.PureComponent {
                 style={[
                   styles.label,
                   {
-                    color: focused ? green : "#7C7C7C",
+                    color: focused ? colors.green : "#7C7C7C",
                     top: labelSize.interpolate({
                       inputRange: [12, 16],
                       outputRange: [0, 14],

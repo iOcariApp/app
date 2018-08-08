@@ -1,16 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StyleSheet } from "react-native";
+import styles from "./Button.style";
 
 import { Button } from "react-native-elements";
 
-import { mainColor } from "variables";
-
-const styles = StyleSheet.create({
-  main: {
-    width: "100%",
-  },
-});
+import { colors } from "theme";
 
 const MyButton = ({ style, backgroundColor, ...rest }) => (
   <Button
@@ -29,7 +23,7 @@ MyButton.propTypes = {
 };
 MyButton.defaultProps = {
   style: {},
-  backgroundColor: mainColor,
+  backgroundColor: colors.mainColor,
 };
 
 export default MyButton;

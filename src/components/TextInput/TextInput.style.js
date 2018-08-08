@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { green } from "variables";
+import { colors } from "theme";
 
 export default StyleSheet.create({
   main: {
@@ -34,7 +34,7 @@ export default StyleSheet.create({
   },
   label: {
     position: "relative",
-    color: green,
+    color: colors.green,
   },
   inputText: {
     fontSize: 16,

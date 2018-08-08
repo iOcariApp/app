@@ -6,7 +6,7 @@
       [
         { "src": "./src/components", "expose": "components" },
         { "src": "./assets", "expose": "assets" },
-        { "src": "./src/variables.js", "expose": "variables" }
+        { "src": "./src/theme.js", "expose": "theme" }
       ]
     ]
   ],

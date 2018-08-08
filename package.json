@@ -27,7 +27,13 @@
     "postinstall": "rm -rf .git/hooks/pre-push && node node_modules/husky/bin/install.js && rm -rf .git/hooks/pre-commit"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "cacheDirectory": "./cache",
+    "coverageThreshold": {
+      "global": {
+        "statements": 80
+      }
+    }
   },
   "dependencies": {
     "expo": "^27.0.1",
