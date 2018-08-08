@@ -3,7 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "babel-eslint": "^8.2.6",
     "babel-plugin-module-alias": "^1.6.0",
+    "eslint": "^5.3.0",
+    "eslint-plugin-react": "^7.10.0",
+    "eslint-plugin-react-native": "^3.2.1",
+    "husky": "^0.14.3",
     "jest-expo": "~27.0.0",
     "react-native-scripts": "1.14.0",
     "react-test-renderer": "16.3.1"
@@ -15,7 +20,11 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "jest",
-    "prettier": "prettier --config \"./.prettierrc.js\" --write \"./src/**/*.@(js|scss)\""
+    "prettier": "prettier --config \"./.prettierrc.js\" --write \"./src/**/*.@(js|scss)\"",
+    "lint": "eslint ./src/",
+    "lint:fix": "eslint ./src/ --fix",
+    "prepush": "npm run lint && npm run test",
+    "postinstall": "rm -rf .git/hooks/pre-push && node node_modules/husky/bin/install.js && rm -rf .git/hooks/pre-commit"
   },
   "jest": {
     "preset": "jest-expo"

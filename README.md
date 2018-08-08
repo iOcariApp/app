@@ -22,9 +22,8 @@ iOcari app
 
 ### Entry point
 
-`app.json`
-
 ```json
+// app.json
 {
   "expo": {
     "entryPoint": "./src/app/index.js"
@@ -32,9 +31,8 @@ iOcari app
 }
 ```
 
-`./src/app/index.js`
-
 ```jsx
+// entry file
 import Expo from 'expo'
 ...
 
@@ -59,9 +57,9 @@ Render `<StatusBar hidden />` in the component.
 
 ### Aliases
 
-`npm install --save babel babel-plugin-module-alias`
+1.  `npm install --save babel babel-plugin-module-alias`
 
-In `.babelrc`:
+2.  In `.babelrc`:
 
 ```json
   "plugins": [[
@@ -80,6 +78,30 @@ Make sure to add the babel config in all environments.
 Set the `style` attribute as an array of the styles.
 
 i.e: `style={[styles.padding, styles.content]}`
+
+### Transform with percentages
+
+```jsx
+class Foo extends Component {
+  ...
+  onLayout = event => {
+    const { width } = event.nativeEvent.layout;
+    this.setState({ myWidth: width });
+  };
+  ...
+  render() {
+    const { myWidth } = this.state;
+
+    return(
+      <View
+        onLayout={this.onLayout}
+        style={{transform: [{translateY: myWidth / 2 }]}}>
+          ...
+      <View/>
+    )
+  }
+}
+```
 
 ## Errors and solutions
 
