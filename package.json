@@ -26,6 +26,7 @@
     "ios": "react-native-scripts ios",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
+    "test:update": "jest --updateSnapshot",
     "prettier": "prettier --config \"./.prettierrc.js\" --write \"./src/**/*.@(js|scss)\"",
     "lint": "eslint ./src/",
     "lint:fix": "eslint ./src/ --fix",

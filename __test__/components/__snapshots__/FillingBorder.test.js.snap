@@ -5,14 +5,14 @@ exports[`renders correctly 1`] = `
   collapsable={undefined}
   style={
     Object {
-      "borderBottomWidth": 4,
-      "borderColor": "#4DB6AC",
-      "flex": 1,
+      "backgroundColor": "#4DB6AC",
+      "height": 4,
       "transform": Array [
         Object {
           "scaleX": 1,
         },
       ],
+      "width": "100%",
     }
   }
 />
