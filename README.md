@@ -32,7 +32,7 @@ iOcari app
 ```
 
 ```jsx
-// entry file
+// ./src/app/index.js
 import Expo from 'expo'
 ...
 
@@ -102,6 +102,10 @@ class Foo extends Component {
   }
 }
 ```
+
+**On initial values of Animated**
+
+Somestime giving an initial value of 0 causes unexpected blinkings. Give a value of 0.001 instead.
 
 ## Errors and solutions
 

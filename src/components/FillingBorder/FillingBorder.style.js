@@ -3,8 +3,8 @@ import { colors } from "theme";
 
 export default StyleSheet.create({
   main: {
-    flex: 1,
-    borderBottomWidth: 4,
-    borderColor: colors.green,
+    width: "100%",
+    height: 4,
+    backgroundColor: colors.green,
   },
 });

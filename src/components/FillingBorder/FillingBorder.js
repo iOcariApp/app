@@ -5,7 +5,7 @@ import styles from "./FillingBorder.style";
 
 class FillingBorder extends React.Component {
   state = {
-    scale: new Animated.Value(0),
+    scale: new Animated.Value(0.001),
   };
 
   componentDidMount = () => {
