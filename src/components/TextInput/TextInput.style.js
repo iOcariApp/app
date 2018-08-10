@@ -1,10 +1,6 @@
 import { StyleSheet } from "react-native";
 import { colors, fontSizes } from "theme";
 
-const baseLabel = () => ({
-  position: "relative",
-});
-
 export default StyleSheet.create({
   main: {
     width: "100%",
@@ -40,12 +36,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   label: {
-    ...baseLabel(),
-    color: colors.grey,
-  },
-  labelFocused: {
-    ...baseLabel(),
-    color: colors.green,
+    position: "relative",
   },
   inputText: {
     fontSize: fontSizes.medium,

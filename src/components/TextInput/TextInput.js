@@ -8,6 +8,7 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import styles from "./TextInput.style";
+import { colors } from "theme";
 
 import { Icon } from "react-native-elements";
 
@@ -21,6 +22,7 @@ const ANIMATION_BACKWARDS = "backward";
 class MyTextInput extends React.PureComponent {
   state = {
     focused: false,
+    showValid: false,
     showError: false,
     myWidth: 2,
     labelSize: new Animated.Value(16),
@@ -31,7 +33,7 @@ class MyTextInput extends React.PureComponent {
     this.setValidationTimeout();
 
     // Update value
-    this.props.onChangeValue(value);
+    this.props.onChangeValue(value.trim());
   };
 
   onFocus = () => {
@@ -48,7 +50,7 @@ class MyTextInput extends React.PureComponent {
   onBlur = () => {
     const { value } = this.props;
     if (value === "") {
-      this.setState({ focused: false });
+      this.setState({ focused: false, showValid: false, showError: false });
       this.playAnimation(ANIMATION_BACKWARDS);
     }
   };
@@ -73,31 +75,48 @@ class MyTextInput extends React.PureComponent {
   checkValue = () => {
     const { value, validation } = this.props;
 
-    const validValue = validation(value);
-    this.setState({ showError: !validValue });
+    if (validation) {
+      const validValue = validation(value);
+      if (validValue) {
+        this.setState({ showValid: true });
+      } else {
+        this.setState({ showError: true });
+      }
+    }
   };
 
   ref = node => {
     this._textInput = node;
   };
 
+  getColorLabel = () => {
+    const { focused, showError } = this.state;
+
+    if (focused) {
+      return showError ? colors.invalid : colors.valid;
+    }
+
+    return colors.grey;
+  };
+
   render = () => {
-    const { showError, focused, myWidth, labelSize } = this.state;
-    const { value, icon, label, error, ...rest } = this.props;
+    const { showValid, showError, focused, myWidth, labelSize } = this.state;
+    const { value, icon, label, validationMessage, ...rest } = this.props;
 
     return (
       <View style={styles.main} onLayout={this.onLayout}>
         <View style={styles.content}>
           <TouchableWithoutFeedback onPress={this.onFocus}>
-            <View style={styles.inputMain}>
+            <View data-test="input-main" style={styles.inputMain}>
               {icon && (
                 <Icon containerStyle={styles.icon} size={24} name={icon} />
               )}
               <View style={styles.input}>
                 <Animated.Text
                   style={[
-                    focused ? styles.labelFocused : styles.label,
+                    styles.label,
                     {
+                      color: this.getColorLabel(),
                       top: labelSize.interpolate({
                         inputRange: [12, 16],
                         outputRange: [0, 14],
@@ -119,6 +138,22 @@ class MyTextInput extends React.PureComponent {
                   {...rest}
                 />
               </View>
+              {showValid && (
+                <Icon
+                  color={colors.valid}
+                  type="feather"
+                  size={24}
+                  name="check"
+                />
+              )}
+              {showError && (
+                <Icon
+                  color={colors.invalid}
+                  type="feather"
+                  size={24}
+                  name="x"
+                />
+              )}
             </View>
           </TouchableWithoutFeedback>
           {focused && (
@@ -128,11 +163,16 @@ class MyTextInput extends React.PureComponent {
                 { transform: [{ translateX: -myWidth / 2 }] },
               ]}
             >
-              <FillingBorder duration={ANIMATION_DURATION} />
+              <FillingBorder
+                color={showError ? colors.invalid : colors.valid}
+                duration={ANIMATION_DURATION}
+              />
             </View>
           )}
         </View>
-        {showError && <Text style={styles.validation}>{error}</Text>}
+        {(showValid || showError) && (
+          <Text style={styles.validation}>{validationMessage}</Text>
+        )}
       </View>
     );
   };
@@ -142,12 +182,12 @@ MyTextInput.propTypes = {
   value: PropTypes.string.isRequired,
   icon: PropTypes.string,
   label: PropTypes.string,
-  error: PropTypes.string,
+  validationMessage: PropTypes.string,
   onChangeValue: PropTypes.func.isRequired,
   validation: PropTypes.func,
 };
 MyTextInput.defaultProps = {
-  error: "No error message set",
+  validationMessage: "No validation message set",
   validation: () => true,
 };
 

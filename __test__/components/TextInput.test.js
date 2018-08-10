@@ -1,26 +1,50 @@
 import React from "react";
 import { TextInput } from "react-native";
 
+import { colors } from "theme";
+
 import MyTextInput from "components/TextInput";
 import FillingBorder from "components/FillingBorder";
 
 let wrapper;
 let value = "";
-const error = "This is an error message";
+const validationMessage = "This is a validation message";
 const onChangeValue = jest.fn(newValue => {
   value = newValue;
 });
-const validation = jest.fn(() => false);
+const validationTrue = jest.fn(() => true);
+const validationFalse = jest.fn(() => false);
 
 beforeEach(() => {
+  value = "";
   wrapper = shallow(
     <MyTextInput
+      icon="lock"
       value={value}
       onChangeValue={onChangeValue}
-      validation={validation}
-      error={error}
+      validation={validationTrue}
+      validationMessage={validationMessage}
     />
   );
+});
+
+describe("value change is correctly handled", () => {
+  let textInput;
+  beforeEach(() => {
+    textInput = wrapper.find(TextInput);
+  });
+
+  test("value updates", () => {
+    const text = "hi";
+    textInput.simulate("changeText", text);
+    expect(value).toBe(text);
+  });
+
+  test("value is trimmed", () => {
+    const text = " hi ";
+    textInput.simulate("changeText", text);
+    expect(value).toBe("hi");
+  });
 });
 
 describe("focus is correctly handled", () => {
@@ -82,25 +106,128 @@ describe("validation is correctly handled", () => {
     textInput.simulate("changeText", "en");
 
     jest.runAllTimers();
-    expect(validation).toHaveBeenCalledTimes(1);
+    expect(validationTrue).toHaveBeenCalledTimes(1);
   });
 
-  test("validation prop sets `showError` state", () => {
+  test("validation prop sets `showValid` state", () => {
     const text = "enzo";
     textInput.simulate("changeText", text);
 
     jest.runAllTimers();
-    expect(wrapper.state("showError")).toBe(!validation(text));
+    expect(wrapper.state("showError")).toBe(!validationTrue(text));
   });
 
-  test("validation error message is shown", () => {
-    expect(wrapper.setState({ showError: true }));
-    expect(wrapper.children().length).toBe(2);
-    expect(
-      wrapper
-        .childAt(1)
-        .dive()
-        .text()
-    ).toBe(error);
+  test("validation prop sets state flags properly", () => {
+    const text = "enzo";
+    textInput.simulate("changeText", text);
+
+    jest.runAllTimers();
+    expect(wrapper.state("showValid")).toBe(true);
+
+    wrapper.setProps({ validation: validationFalse });
+    textInput.simulate("changeText", text);
+
+    jest.runAllTimers();
+    expect(wrapper.state("showError")).toBe(true);
+  });
+
+  describe("validation UI renders correctly", () => {
+    describe("when validation was true", () => {
+      beforeEach(() => {
+        wrapper.setState({ showValid: true });
+      });
+
+      it("should render the validation message", () => {
+        expect(wrapper.children().length).toBe(2);
+        expect(
+          wrapper
+            .childAt(1)
+            .dive()
+            .text()
+        ).toBe(validationMessage);
+      });
+
+      it("should render the validation icon", () => {
+        const inputMain = wrapper.find('[data-test="input-main"]');
+        expect(inputMain.children().length).toBe(3);
+        expect(inputMain.childAt(2).props().name).toBe("check");
+      });
+
+      it("should set elements colors to `valid` color", () => {
+        textInput.simulate("focus");
+
+        // FillingBorder color
+        expect(wrapper.find(FillingBorder).props().color).toBe(colors.valid);
+
+        // Text color
+        const inputMain = wrapper.find('[data-test="input-main"]');
+        expect(
+          inputMain
+            .childAt(1)
+            .childAt(0)
+            .props().style[1].color
+        ).toBe(colors.valid);
+      });
+    });
+
+    describe("when validation was false", () => {
+      beforeEach(() => {
+        wrapper.setState({ showError: true });
+      });
+
+      it("should render the validation message", () => {
+        expect(wrapper.children().length).toBe(2);
+        expect(
+          wrapper
+            .childAt(1)
+            .dive()
+            .text()
+        ).toBe(validationMessage);
+      });
+
+      it("should render the validation icon", () => {
+        const inputMain = wrapper.find('[data-test="input-main"]');
+        expect(inputMain.children().length).toBe(3);
+        expect(inputMain.childAt(2).props().name).toBe("x");
+      });
+
+      it("should set elements colors to `invalid` color", () => {
+        textInput.simulate("focus");
+
+        // FillingBorder color
+        expect(wrapper.find(FillingBorder).props().color).toBe(colors.invalid);
+
+        // Text color
+        const inputMain = wrapper.find('[data-test="input-main"]');
+        expect(
+          inputMain
+            .childAt(1)
+            .childAt(0)
+            .props().style[1].color
+        ).toBe(colors.invalid);
+      });
+    });
+  });
+
+  test("blur doesn't hide validation if filled input", () => {
+    wrapper.setState({ focused: true, showValid: true, showError: true });
+    wrapper.setProps({ value: "enzo" });
+
+    textInput.simulate("blur");
+
+    expect(wrapper.state("focused")).toBe(true);
+    expect(wrapper.state("showValid")).toBe(true);
+    expect(wrapper.state("showError")).toBe(true);
+  });
+
+  test("blur hides validation if empty input", () => {
+    wrapper.setState({ focused: true, showValid: true, showError: true });
+    wrapper.setProps({ value: "" });
+
+    textInput.simulate("blur");
+
+    expect(wrapper.state("focused")).toBe(false);
+    expect(wrapper.state("showValid")).toBe(false);
+    expect(wrapper.state("showError")).toBe(false);
   });
 });
