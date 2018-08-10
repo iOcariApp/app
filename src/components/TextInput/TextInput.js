@@ -188,7 +188,6 @@ MyTextInput.propTypes = {
 };
 MyTextInput.defaultProps = {
   validationMessage: "No validation message set",
-  validation: () => true,
 };
 
 export default MyTextInput;
