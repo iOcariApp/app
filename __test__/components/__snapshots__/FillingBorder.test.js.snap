@@ -1,5 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`applies \`color\` prop 1`] = `
+<View
+  collapsable={undefined}
+  style={
+    Object {
+      "backgroundColor": "black",
+      "height": 4,
+      "transform": Array [
+        Object {
+          "scaleX": 1,
+        },
+      ],
+      "width": "100%",
+    }
+  }
+/>
+`;
+
 exports[`renders correctly 1`] = `
 <View
   collapsable={undefined}
