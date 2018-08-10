@@ -8,12 +8,11 @@ import FillingBorder from "components/FillingBorder";
 
 let wrapper;
 let value = "";
-const validationMessage = "This is a validation message";
 const onChangeValue = jest.fn(newValue => {
   value = newValue;
 });
-const validationTrue = jest.fn(() => true);
-const validationFalse = jest.fn(() => false);
+const validationTrue = jest.fn(() => ({ valid: true, message: "Valid" }));
+const validationFalse = jest.fn(() => ({ valid: false, message: "Invalid" }));
 
 beforeEach(() => {
   value = "";
@@ -23,7 +22,6 @@ beforeEach(() => {
       value={value}
       onChangeValue={onChangeValue}
       validation={validationTrue}
-      validationMessage={validationMessage}
     />
   );
 });
@@ -109,12 +107,12 @@ describe("validation is correctly handled", () => {
     expect(validationTrue).toHaveBeenCalledTimes(1);
   });
 
-  test("validation prop sets `showValid` state", () => {
+  test("validation sets `validationMessage` state", () => {
     const text = "enzo";
     textInput.simulate("changeText", text);
 
     jest.runAllTimers();
-    expect(wrapper.state("showError")).toBe(!validationTrue(text));
+    expect(wrapper.state("validationMessage")).toBe("Valid");
   });
 
   test("validation prop sets state flags properly", () => {
@@ -139,12 +137,6 @@ describe("validation is correctly handled", () => {
 
       it("should render the validation message", () => {
         expect(wrapper.children().length).toBe(2);
-        expect(
-          wrapper
-            .childAt(1)
-            .dive()
-            .text()
-        ).toBe(validationMessage);
       });
 
       it("should render the validation icon", () => {
@@ -177,12 +169,6 @@ describe("validation is correctly handled", () => {
 
       it("should render the validation message", () => {
         expect(wrapper.children().length).toBe(2);
-        expect(
-          wrapper
-            .childAt(1)
-            .dive()
-            .text()
-        ).toBe(validationMessage);
       });
 
       it("should render the validation icon", () => {

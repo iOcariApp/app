@@ -76,11 +76,11 @@ class MyTextInput extends React.PureComponent {
     const { value, validation } = this.props;
 
     if (validation) {
-      const validValue = validation(value);
-      if (validValue) {
-        this.setState({ showValid: true });
+      const result = validation(value);
+      if (result.valid) {
+        this.setState({ showValid: true, validationMessage: result.message });
       } else {
-        this.setState({ showError: true });
+        this.setState({ showError: true, validationMessage: result.message });
       }
     }
   };
@@ -100,8 +100,15 @@ class MyTextInput extends React.PureComponent {
   };
 
   render = () => {
-    const { showValid, showError, focused, myWidth, labelSize } = this.state;
-    const { value, icon, label, validationMessage, ...rest } = this.props;
+    const {
+      showValid,
+      showError,
+      validationMessage,
+      focused,
+      myWidth,
+      labelSize,
+    } = this.state;
+    const { value, icon, label, ...rest } = this.props;
 
     return (
       <View style={styles.main} onLayout={this.onLayout}>
@@ -182,12 +189,8 @@ MyTextInput.propTypes = {
   value: PropTypes.string.isRequired,
   icon: PropTypes.string,
   label: PropTypes.string,
-  validationMessage: PropTypes.string,
   onChangeValue: PropTypes.func.isRequired,
   validation: PropTypes.func,
-};
-MyTextInput.defaultProps = {
-  validationMessage: "No validation message set",
 };
 
 export default MyTextInput;
