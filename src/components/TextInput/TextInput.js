@@ -76,6 +76,9 @@ class MyTextInput extends React.PureComponent {
     const { value, validation } = this.props;
 
     if (validation) {
+      // Reset
+      this.setState({ showValid: false, showError: false });
+
       const result = validation(value);
       if (result.valid) {
         this.setState({ showValid: true, validationMessage: result.message });

@@ -121,12 +121,14 @@ describe("validation is correctly handled", () => {
 
     jest.runAllTimers();
     expect(wrapper.state("showValid")).toBe(true);
+    expect(wrapper.state("showError")).toBe(false);
 
     wrapper.setProps({ validation: validationFalse });
     textInput.simulate("changeText", text);
 
     jest.runAllTimers();
     expect(wrapper.state("showError")).toBe(true);
+    expect(wrapper.state("showValid")).toBe(false);
   });
 
   describe("validation UI renders correctly", () => {
