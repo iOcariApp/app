@@ -16,18 +16,14 @@ export default StyleSheet.create({
   content: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
     alignItems: "center",
     width: "100%",
   },
-  logo: {
-    marginTop: 42,
-  },
+  logo: {},
   socialLogin: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 20,
-    marginBottom: 36,
   },
   socialIcon: {
     width: 60,
