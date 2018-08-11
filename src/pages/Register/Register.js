@@ -6,10 +6,8 @@ import validEmail from "utils/validEmail";
 
 import plainLogo from "assets/plain-logo/plain-logo.png";
 
-import TextInput from "components/TextInput";
-import Button from "components/Button";
-import DualRow from "components/DualRow";
-import WhiteEmptyButton from "components/Button/WhiteEmptyButton";
+import Page1 from "./Page1";
+import Page2 from "./Page2";
 
 class Register extends React.PureComponent {
   state = {
@@ -123,20 +121,7 @@ class Register extends React.PureComponent {
   };
 
   render = () => {
-    const {
-      screen,
-      nickname,
-      email,
-      password,
-      passwordDouble,
-      name,
-      surname,
-      birthdate,
-      address,
-      country,
-      city,
-      postalCode,
-    } = this.state;
+    const { screen } = this.state;
 
     return (
       <View style={styles.main}>
@@ -148,98 +133,9 @@ class Register extends React.PureComponent {
           </Text>
         )}
         {screen === 0 ? (
-          <View style={styles.container}>
-            <TextInput
-              label="Nombre de jugador"
-              value={nickname}
-              onChangeValue={this.onChangeNickname}
-              validation={this.availableNickname}
-            />
-            <TextInput
-              label="E-mail"
-              value={email}
-              onChangeValue={this.onChangeEmail}
-              validation={this.validEmail}
-              keyboardType="email-address"
-            />
-            <TextInput
-              value={password}
-              onChangeValue={this.onChangePassword}
-              label="Contraseña"
-              validation={this.passwordStrength}
-              secureTextEntry
-            />
-            <TextInput
-              value={passwordDouble}
-              onChangeValue={this.onChangePasswordDouble}
-              label="Repetir contraseña"
-              validation={this.samePassword}
-              secureTextEntry
-            />
-            <Button
-              title="SIGUIENTE"
-              style={styles.marginButtons}
-              onPress={this.goNext}
-            />
-          </View>
+          <Page1 values={this.state} logic={this} />
         ) : (
-          <ScrollView style={styles.containerScrollable}>
-            <TextInput
-              label="Nombre"
-              value={name}
-              onChangeValue={this.onChangeName}
-              validation={this.validValidation}
-            />
-            <TextInput
-              label="Apellido"
-              value={surname}
-              onChangeValue={this.onChangeSurname}
-              validation={this.validValidation}
-            />
-            <TextInput
-              label="Fecha de nacimiento"
-              value={birthdate}
-              onChangeValue={this.onChangeBirthdate}
-              validation={this.validValidation}
-            />
-            <TextInput
-              label="Dirección"
-              value={address}
-              onChangeValue={this.onChangeAddress}
-              validation={this.validValidation}
-            />
-            <TextInput
-              label="País"
-              value={country}
-              onChangeValue={this.onChangeCountry}
-              validation={this.validValidation}
-            />
-            <DualRow
-              left={
-                <TextInput
-                  label="Ciudad"
-                  value={city}
-                  onChangeValue={this.onChangeCity}
-                  validation={this.validValidation}
-                />
-              }
-              right={
-                <TextInput
-                  label="Código Postal"
-                  value={postalCode}
-                  onChangeValue={this.onChangePostalCode}
-                  validation={this.validValidation}
-                />
-              }
-              separation={15}
-            />
-            <DualRow
-              style={styles.marginButtons}
-              left={<WhiteEmptyButton title="ATRÁS" onPress={this.goPrev} />}
-              right={<Button title="¡LISTO!" onPress={this.goNext} />}
-              separation={7}
-            />
-          </ScrollView>
+          <Page2 values={this.state} logic={this} />
         )}
       </View>
     );
