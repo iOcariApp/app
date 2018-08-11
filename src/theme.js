@@ -9,12 +9,13 @@ export const colors = {
 export const fontSizes = {
   small: 12,
   medium: 16,
+  big: 18,
 };
 
 export const padding = 30;
 
 export const button = {
   height: 56,
-  fontSize: 18,
+  fontSize: fontSizes.big,
   radius: 4,
 };

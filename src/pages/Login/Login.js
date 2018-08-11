@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { View, StatusBar, Image, Text } from "react-native";
 import { SocialIcon } from "react-native-elements";
 import styles from "./Login.style";
@@ -7,9 +8,11 @@ import plainLogo from "assets/plain-logo/plain-logo.png";
 
 import TextInput from "components/TextInput";
 import Button from "components/Button";
+import BlueButton from "components/Button/BlueButton";
 
 class Login extends React.PureComponent {
   state = {
+    fetching: false,
     email: "",
     password: "",
   };
@@ -21,8 +24,18 @@ class Login extends React.PureComponent {
     this.setState({ password });
   };
 
+  login = () => {
+    this.setState({ fetching: true });
+
+    setTimeout(this.goToRegister, 1500);
+  };
+
+  goToRegister = () => {
+    this.props.navigation.navigate("Register");
+  };
+
   render = () => {
-    const { email, password } = this.state;
+    const { fetching, email, password } = this.state;
 
     return (
       <View style={styles.main}>
@@ -34,7 +47,7 @@ class Login extends React.PureComponent {
               keyboardType="email-address"
               value={email}
               onChangeValue={this.onChangeEmail}
-              label="Email"
+              label="E-mail"
               icon="email"
             />
             <TextInput
@@ -45,7 +58,7 @@ class Login extends React.PureComponent {
               icon="lock"
             />
           </View>
-          <Button title="ACCEDER" />
+          <Button title="ACCEDER" onPress={this.login} loading={fetching} />
           <View style={styles.socialLogin}>
             <SocialIcon
               button
@@ -70,11 +83,18 @@ class Login extends React.PureComponent {
         </View>
         <View style={[styles.padding, styles.footer]}>
           <Text style={styles.footerText}>¿No tienes cuenta aún?</Text>
-          <Button title="CREA UNA CUENTA AHORA" backgroundColor="#0277BD" />
+          <BlueButton
+            title="CREA UNA CUENTA AHORA"
+            onPress={this.goToRegister}
+          />
         </View>
       </View>
     );
   };
 }
+
+Login.propTypes = {
+  navigation: PropTypes.object,
+};
 
 export default Login;
