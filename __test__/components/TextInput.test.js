@@ -24,6 +24,17 @@ beforeEach(() => {
       validation={validationTrue}
     />
   );
+
+  // Mount doesn't work with react-native yet
+  wrapper.instance().ref({
+    focus: wrapper.instance().onFocus,
+  });
+});
+
+test("onLayout sets `myWidth` state", () => {
+  const width = 100;
+  wrapper.instance().onLayout({ nativeEvent: { layout: { width } } });
+  expect(wrapper.state("myWidth")).toBe(width);
 });
 
 describe("value change is correctly handled", () => {
@@ -65,7 +76,7 @@ describe("focus is correctly handled", () => {
     });
   });
 
-  describe("when the components is pressed", () => {
+  describe("when the component is pressed", () => {
     it("should set `focused` state to true", () => {
       wrapper
         .childAt(0)

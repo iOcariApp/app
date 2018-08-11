@@ -37,14 +37,8 @@ class MyTextInput extends React.PureComponent {
   };
 
   onFocus = () => {
-    const { focused } = this.state;
-    if (!focused) {
-      if (this._textInput) {
-        this._textInput.focus();
-      }
-      this.setState({ focused: true });
-      this.playAnimation(ANIMATION_FORWARDS);
-    }
+    this.setState({ focused: true });
+    this.playAnimation(ANIMATION_FORWARDS);
   };
 
   onBlur = () => {
@@ -58,6 +52,10 @@ class MyTextInput extends React.PureComponent {
   onLayout = event => {
     const { width } = event.nativeEvent.layout;
     this.setState({ myWidth: width });
+  };
+
+  focusInput = () => {
+    this._textInput.focus();
   };
 
   setValidationTimeout = () => {
@@ -119,7 +117,7 @@ class MyTextInput extends React.PureComponent {
     return (
       <View style={styles.main} onLayout={this.onLayout}>
         <View style={styles.content}>
-          <TouchableWithoutFeedback onPress={this.onFocus}>
+          <TouchableWithoutFeedback onPress={this.focusInput}>
             <View data-test="input-main" style={styles.inputMain}>
               {icon && (
                 <Icon containerStyle={styles.icon} size={24} name={icon} />
