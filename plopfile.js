@@ -22,7 +22,7 @@ module.exports = function(plop) {
       },
       {
         type: "add",
-        path: "{{path}}/{{componentName}}/{{dashCase componentName}}.scss",
+        path: "{{path}}/{{componentName}}/{{componentName}}.style.js",
         templateFile: "templates/BasicComponent/BasicComponent.style.js.hbs",
       },
       {

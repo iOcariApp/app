@@ -32,7 +32,8 @@
     "lint": "eslint ./src/",
     "lint:fix": "eslint ./src/ --fix",
     "prepush": "npm run lint && npm run test",
-    "postinstall": "rm -rf .git/hooks/pre-push && node node_modules/husky/bin/install.js && rm -rf .git/hooks/pre-commit"
+    "postinstall": "rm -rf .git/hooks/pre-push && node node_modules/husky/bin/install.js && rm -rf .git/hooks/pre-commit",
+    "plop": "plop"
   },
   "jest": {
     "preset": "jest-expo",
