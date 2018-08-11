@@ -5,6 +5,7 @@
       "module-alias",
       [
         { "src": "./src/components", "expose": "components" },
+        { "src": "./src/pages", "expose": "pages" },
         { "src": "./assets", "expose": "assets" },
         { "src": "./src/theme.js", "expose": "theme" },
         { "src": "./src/utils", "expose": "utils" }
