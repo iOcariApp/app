@@ -4,7 +4,8 @@
     "paths": {
       "components/*": ["./src/components/*"],
       "theme": ["./src/theme.js"],
-      "assets/*": ["./assets/*"]
+      "assets/*": ["./assets/*"],
+      "utils/*": ["./src/utils/*"]
     }
   },
   "exclude": ["node_modules", "dist"]
