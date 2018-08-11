@@ -113,6 +113,9 @@ class MyTextInput extends React.PureComponent {
     } = this.state;
     const { value, icon, label, ...rest } = this.props;
 
+    const showValidationMessage =
+      (showValid || showError) && validationMessage !== "";
+
     return (
       <View style={styles.main} onLayout={this.onLayout}>
         <View style={styles.content}>
@@ -180,7 +183,7 @@ class MyTextInput extends React.PureComponent {
             </View>
           )}
         </View>
-        {(showValid || showError) && (
+        {showValidationMessage && (
           <Text style={styles.validation}>{validationMessage}</Text>
         )}
       </View>

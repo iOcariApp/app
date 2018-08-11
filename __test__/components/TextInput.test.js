@@ -141,6 +141,11 @@ describe("validation is correctly handled", () => {
         expect(wrapper.children().length).toBe(2);
       });
 
+      it("shouldn't render the validation message when empty", () => {
+        wrapper.setState({ validationMessage: "" });
+        expect(wrapper.children().length).toBe(1);
+      });
+
       it("should render the validation icon", () => {
         const inputMain = wrapper.find('[data-test="input-main"]');
         expect(inputMain.children().length).toBe(3);
@@ -171,6 +176,11 @@ describe("validation is correctly handled", () => {
 
       it("should render the validation message", () => {
         expect(wrapper.children().length).toBe(2);
+      });
+
+      it("shouldn't render the validation message when empty", () => {
+        wrapper.setState({ validationMessage: "" });
+        expect(wrapper.children().length).toBe(1);
       });
 
       it("should render the validation icon", () => {
