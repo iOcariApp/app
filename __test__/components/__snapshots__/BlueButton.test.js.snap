@@ -20,7 +20,7 @@ exports[`renders correctly 1`] = `
         Object {},
       ],
       Object {
-        "borderRadius": 7,
+        "borderRadius": 4,
       },
     ]
   }
@@ -65,13 +65,17 @@ exports[`renders correctly 1`] = `
             "backgroundColor": "#0277BD",
           },
           Object {
-            "borderRadius": 7,
+            "borderRadius": 4,
           },
-          false,
+          Object {
+            "padding": 12,
+          },
           undefined,
           undefined,
           undefined,
-          undefined,
+          Object {
+            "height": 56,
+          },
           undefined,
           undefined,
         ]
@@ -99,12 +103,14 @@ exports[`renders correctly 1`] = `
                 "fontSize": 20,
               },
               undefined,
-              false,
-              undefined,
-              undefined,
               Object {
-                "fontWeight": "bold",
+                "fontSize": 17.5,
               },
+              Object {
+                "fontSize": 18,
+              },
+              undefined,
+              undefined,
               undefined,
               undefined,
             ],

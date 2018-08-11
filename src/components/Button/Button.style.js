@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { button } from "theme";
 
 export default StyleSheet.create({
   main: {
@@ -7,5 +8,8 @@ export default StyleSheet.create({
     marginRight: 0,
     marginTop: 0,
     marginBottom: 0,
+  },
+  button: {
+    height: button.height,
   },
 });

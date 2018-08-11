@@ -4,15 +4,15 @@ import styles from "./Button.style";
 
 import { Button } from "react-native-elements";
 
-import { colors } from "theme";
+import { colors, button } from "theme";
 
 const MyButton = ({ style, backgroundColor, ...rest }) => (
   <Button
-    large
-    containerViewStyle={[styles.main, style]}
-    borderRadius={7}
-    fontWeight="bold"
     backgroundColor={backgroundColor}
+    containerViewStyle={[styles.main, style]}
+    buttonStyle={styles.button}
+    borderRadius={button.radius}
+    fontSize={button.fontSize}
     {...rest}
   />
 );

@@ -12,3 +12,9 @@ export const fontSizes = {
 };
 
 export const padding = 30;
+
+export const button = {
+  height: 56,
+  fontSize: 18,
+  radius: 4,
+};
