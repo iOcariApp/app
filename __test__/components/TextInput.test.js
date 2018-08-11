@@ -61,6 +61,14 @@ describe("focus is correctly handled", () => {
     expect(wrapper.state("focused")).toBe(false);
   });
 
+  test("focus is true if initial value", () => {
+    wrapper.setProps({ value: "enzo" });
+    wrapper.instance().componentDidMount();
+    expect(wrapper.state("focused")).toBe(true);
+
+    jest.clearAllMocks(); // remove call count on validation fn
+  });
+
   describe("when the input is focused and blurred", () => {
     it("should set `focused` state correctly", () => {
       const textInput = wrapper.find(TextInput);
@@ -99,6 +107,14 @@ describe("validation is correctly handled", () => {
   beforeEach(() => {
     textInput = wrapper.find(TextInput);
     jest.useFakeTimers();
+  });
+
+  test("validation is called if initial value", () => {
+    wrapper.setProps({ value: "enzo" });
+    wrapper.instance().componentDidMount();
+    expect(validationTrue).toHaveBeenCalledTimes(1);
+
+    jest.clearAllMocks(); // remove call count on validation fn
   });
 
   test("validation timeout is set whenever the text changes", () => {

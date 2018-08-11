@@ -28,6 +28,13 @@ class MyTextInput extends React.PureComponent {
     labelSize: new Animated.Value(16),
   };
 
+  componentDidMount = () => {
+    if (this.props.value !== "") {
+      this.onFocus();
+      this.checkValue();
+    }
+  };
+
   onChangeText = value => {
     // Validation time out
     this.setValidationTimeout();

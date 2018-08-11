@@ -117,8 +117,7 @@ class Register extends React.PureComponent {
     const validEmail = this.validEmail().valid;
     const validPassword = this.samePassword().valid;
 
-    // validNickame && validEmail && validPassword
-    if (true) {
+    if (validNickame && validEmail && validPassword) {
       this.setState({ screen: 1 });
     }
   };
@@ -132,7 +131,7 @@ class Register extends React.PureComponent {
   };
 
   finish = () => {
-    console.log("Registered", this.state);
+    console.log("Registered", this.state); // eslint-disable-line no-console
   };
 
   render = () => {

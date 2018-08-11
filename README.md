@@ -107,6 +107,12 @@ class Foo extends Component {
 
 Somestime giving an initial value of 0 causes unexpected blinkings. Give a value of 0.001 instead.
 
+**On Enzyme's mount rendering**
+
+It is not supported yet.
+
+[https://github.com/airbnb/enzyme/issues/1436](https://github.com/airbnb/enzyme/issues/1436).
+
 ## Errors and solutions
 
 **"Trying to add a root view with an explicit id already set"**
