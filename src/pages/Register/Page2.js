@@ -20,7 +20,7 @@ const Page2 = ({
     onChangePostalCode,
     validValidation,
     goPrev,
-    goNext,
+    showPrivacyModal,
   },
 }) => (
   <ScrollView style={styles.containerScrollable}>
@@ -76,7 +76,7 @@ const Page2 = ({
     <DualRow
       style={styles.marginButtons}
       left={<WhiteEmptyButton title="ATRÁS" onPress={goPrev} />}
-      right={<Button title="¡LISTO!" onPress={goNext} />}
+      right={<Button title="¡LISTO!" onPress={showPrivacyModal} />}
       separation={7}
     />
   </ScrollView>
@@ -102,7 +102,7 @@ Page2.propTypes = {
     onChangePostalCode: PropTypes.func,
     validValidation: PropTypes.func,
     goPrev: PropTypes.func,
-    goNext: PropTypes.func,
+    showPrivacyModal: PropTypes.func,
   }),
 };
 

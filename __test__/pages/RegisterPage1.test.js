@@ -21,7 +21,6 @@ const props = {
     validEmail: noop,
     passwordStrength: noop,
     samePassword: noop,
-    goNext: noop,
   },
 };
 

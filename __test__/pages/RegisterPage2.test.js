@@ -24,8 +24,6 @@ const props = {
     onChangeCity: noop,
     onChangePostalCode: noop,
     validValidation: noop,
-    goPrev: noop,
-    goNext: noop,
   },
 };
 

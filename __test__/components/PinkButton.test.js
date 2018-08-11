@@ -1,9 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import WhiteEmptyButton from "components/Button/WhiteEmptyButton";
+import PinkButton from "components/Button/PinkButton";
 
 test("renders correctly", () => {
-  const tree = renderer.create(<WhiteEmptyButton />).toJSON();
+  const tree = renderer.create(<PinkButton />).toJSON();
   expect(tree).toMatchSnapshot();
 });

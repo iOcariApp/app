@@ -1,5 +1,136 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`applies props correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginLeft": 15,
+        "marginRight": 15,
+      },
+      undefined,
+      Array [
+        Object {
+          "marginBottom": 0,
+          "marginLeft": 0,
+          "marginRight": 0,
+          "marginTop": 0,
+          "width": "100%",
+        },
+        Object {},
+      ],
+      Object {
+        "borderRadius": 4,
+      },
+    ]
+  }
+>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={null}
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <View
+      pointerEvents="box-only"
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#9E9E9E",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "padding": 19,
+          },
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Object {
+            "borderRadius": 4,
+          },
+          Object {
+            "padding": 12,
+          },
+          undefined,
+          undefined,
+          undefined,
+          Array [
+            Object {
+              "height": 56,
+            },
+            Object {
+              "borderColor": "yellow",
+              "borderWidth": 2,
+              "width": "50%",
+            },
+          ],
+          undefined,
+          undefined,
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {},
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            Array [
+              Object {
+                "color": "white",
+                "fontSize": 20,
+              },
+              Object {
+                "color": "yellow",
+              },
+              Object {
+                "fontSize": 17.5,
+              },
+              Object {
+                "fontSize": 18,
+              },
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+            ],
+          ]
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
 exports[`renders correctly 1`] = `
 <View
   style={
@@ -62,7 +193,7 @@ exports[`renders correctly 1`] = `
           undefined,
           undefined,
           Object {
-            "backgroundColor": "#F50057",
+            "backgroundColor": "transparent",
           },
           Object {
             "borderRadius": 4,
@@ -77,7 +208,10 @@ exports[`renders correctly 1`] = `
             Object {
               "height": 56,
             },
-            Object {},
+            Object {
+              "borderColor": "white",
+              "borderWidth": 2,
+            },
           ],
           undefined,
           undefined,
@@ -105,134 +239,9 @@ exports[`renders correctly 1`] = `
                 "color": "white",
                 "fontSize": 20,
               },
-              undefined,
-              Object {
-                "fontSize": 17.5,
-              },
-              Object {
-                "fontSize": 18,
-              },
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-            ],
-          ]
-        }
-      />
-    </View>
-  </View>
-</View>
-`;
-
-exports[`when receiving props should apply them correctly 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginLeft": 15,
-        "marginRight": 15,
-      },
-      undefined,
-      Array [
-        Object {
-          "marginBottom": 0,
-          "marginLeft": 0,
-          "marginRight": 0,
-          "marginTop": 0,
-          "width": "100%",
-        },
-        Object {
-          "width": 50,
-        },
-      ],
-      Object {
-        "borderRadius": 4,
-      },
-    ]
-  }
->
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={null}
-    testID={undefined}
-    tvParallaxProperties={undefined}
-  >
-    <View
-      pointerEvents="box-only"
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#9E9E9E",
-            "flexDirection": "row",
-            "justifyContent": "center",
-            "padding": 19,
-          },
-          undefined,
-          undefined,
-          undefined,
-          undefined,
-          undefined,
-          Object {
-            "backgroundColor": "#F50057",
-          },
-          Object {
-            "borderRadius": 4,
-          },
-          Object {
-            "padding": 12,
-          },
-          undefined,
-          undefined,
-          undefined,
-          Array [
-            Object {
-              "height": 56,
-            },
-            Object {},
-          ],
-          undefined,
-          undefined,
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {},
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            Array [
               Object {
                 "color": "white",
-                "fontSize": 20,
               },
-              undefined,
               Object {
                 "fontSize": 17.5,
               },

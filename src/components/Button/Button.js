@@ -6,11 +6,11 @@ import { Button } from "react-native-elements";
 
 import { colors, button } from "theme";
 
-const MyButton = ({ style, backgroundColor, ...rest }) => (
+const MyButton = ({ backgroundColor, small, style, buttonStyle, ...rest }) => (
   <Button
     backgroundColor={backgroundColor}
     containerViewStyle={[styles.main, style]}
-    buttonStyle={styles.button}
+    buttonStyle={[small ? styles.smallButton : styles.button, buttonStyle]}
     borderRadius={button.radius}
     fontSize={button.fontSize}
     {...rest}
@@ -18,12 +18,16 @@ const MyButton = ({ style, backgroundColor, ...rest }) => (
 );
 
 MyButton.propTypes = {
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
   backgroundColor: PropTypes.string,
+  small: PropTypes.bool,
+  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+  buttonStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
 };
 MyButton.defaultProps = {
-  style: {},
   backgroundColor: colors.mainColor,
+  small: false,
+  style: {},
+  buttonStyle: {},
 };
 
 export default MyButton;

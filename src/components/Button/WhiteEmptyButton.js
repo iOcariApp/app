@@ -1,30 +1,7 @@
 import React from "react";
-import { PropTypes } from "prop-types";
-import { StyleSheet } from "react-native";
-import { button } from "theme";
 
-import Button from "./Button";
+import EmptyButton from "components/Button/EmptyButton";
 
-const WhiteEmptyButton = ({ buttonStyle, ...rest }) => (
-  <Button
-    buttonStyle={StyleSheet.flatten([
-      buttonStyle,
-      {
-        borderColor: "white",
-        borderWidth: 2,
-        height: button.height - 2,
-      },
-    ])}
-    backgroundColor="transparent"
-    {...rest}
-  />
-);
-
-WhiteEmptyButton.propTypes = {
-  buttonStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-};
-WhiteEmptyButton.defaultProps = {
-  buttonStyle: {},
-};
+const WhiteEmptyButton = props => <EmptyButton color="white" {...props} />;
 
 export default WhiteEmptyButton;

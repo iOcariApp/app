@@ -12,4 +12,7 @@ export default StyleSheet.create({
   button: {
     height: button.height,
   },
+  smallButton: {
+    height: button.smallHeight,
+  },
 });

@@ -62,7 +62,7 @@ exports[`renders correctly 1`] = `
           undefined,
           undefined,
           Object {
-            "backgroundColor": "transparent",
+            "backgroundColor": "#EF5865",
           },
           Object {
             "borderRadius": 4,
@@ -77,10 +77,7 @@ exports[`renders correctly 1`] = `
             Object {
               "height": 56,
             },
-            Object {
-              "borderColor": "white",
-              "borderWidth": 2,
-            },
+            Object {},
           ],
           undefined,
           undefined,
@@ -108,9 +105,7 @@ exports[`renders correctly 1`] = `
                 "color": "white",
                 "fontSize": 20,
               },
-              Object {
-                "color": "white",
-              },
+              undefined,
               Object {
                 "fontSize": 17.5,
               },

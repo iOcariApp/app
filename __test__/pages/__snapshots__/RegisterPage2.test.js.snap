@@ -824,11 +824,15 @@ exports[`renders correctly 1`] = `
                   undefined,
                   undefined,
                   undefined,
-                  Object {
-                    "borderColor": "white",
-                    "borderWidth": 2,
-                    "height": 54,
-                  },
+                  Array [
+                    Object {
+                      "height": 56,
+                    },
+                    Object {
+                      "borderColor": "white",
+                      "borderWidth": 2,
+                    },
+                  ],
                   undefined,
                   undefined,
                 ]
@@ -855,7 +859,9 @@ exports[`renders correctly 1`] = `
                         "color": "white",
                         "fontSize": 20,
                       },
-                      undefined,
+                      Object {
+                        "color": "white",
+                      },
                       Object {
                         "fontSize": 17.5,
                       },
@@ -955,9 +961,12 @@ exports[`renders correctly 1`] = `
                   undefined,
                   undefined,
                   undefined,
-                  Object {
-                    "height": 56,
-                  },
+                  Array [
+                    Object {
+                      "height": 56,
+                    },
+                    Object {},
+                  ],
                   undefined,
                   undefined,
                 ]

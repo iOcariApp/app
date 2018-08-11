@@ -78,7 +78,7 @@ exports[`renders correctly 1`] = `
               "height": 56,
             },
             Object {
-              "borderColor": "white",
+              "borderColor": "#EF5865",
               "borderWidth": 2,
             },
           ],
@@ -109,7 +109,7 @@ exports[`renders correctly 1`] = `
                 "fontSize": 20,
               },
               Object {
-                "color": "white",
+                "color": "#EF5865",
               },
               Object {
                 "fontSize": 17.5,

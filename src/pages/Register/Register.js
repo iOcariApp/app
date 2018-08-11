@@ -1,13 +1,20 @@
 import React from "react";
-import { View, ScrollView, StatusBar, Image, Text } from "react-native";
+import { View, StatusBar, Image, Text } from "react-native";
 import styles from "./Register.style";
 
 import validEmail from "utils/validEmail";
 
 import plainLogo from "assets/plain-logo/plain-logo.png";
+import privacyShield from "assets/privacy-shield/privacy-shield.png";
+
+import PopupDialog, { SlideAnimation } from "react-native-popup-dialog";
 
 import Page1 from "./Page1";
 import Page2 from "./Page2";
+
+import DualRow from "components/DualRow";
+import PinkButton from "components/Button/PinkButton";
+import PinkEmptyButton from "components/Button/PinkEmptyButton";
 
 class Register extends React.PureComponent {
   state = {
@@ -120,6 +127,14 @@ class Register extends React.PureComponent {
     this.setState({ screen: 0 });
   };
 
+  showPrivacyModal = () => {
+    this._popupDialog.show();
+  };
+
+  finish = () => {
+    console.log("Registered", this.state);
+  };
+
   render = () => {
     const { screen } = this.state;
 
@@ -137,6 +152,65 @@ class Register extends React.PureComponent {
         ) : (
           <Page2 values={this.state} logic={this} />
         )}
+        <PopupDialog
+          ref={node => {
+            this._popupDialog = node;
+          }}
+          dialogAnimation={
+            new SlideAnimation({
+              slideFrom: "top",
+            })
+          }
+          dismissOnTouchOutside={false}
+          width={288}
+          height={396}
+          dialogStyle={{
+            paddingTop: 29,
+            paddingBottom: 35,
+            paddingLeft: 31,
+            paddingRight: 31,
+          }}
+        >
+          <View
+            style={{
+              flex: 1,
+              flexDirection: "column",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Image source={privacyShield} />
+            <Text
+              style={{
+                fontSize: 20,
+                color: "#4E4E4E",
+                fontWeight: "500",
+                lineHeight: 24,
+                textAlign: "center",
+              }}
+            >
+              Tu seguridad es importante
+            </Text>
+            <Text
+              style={{
+                fontSize: 14,
+                color: "#4E4E4E",
+                lineHeight: 18,
+                textAlign: "center",
+              }}
+            >
+              En nuestra política de privacidad de datos y términos y
+              condiciones te explicamos claramente como manejamos tu información
+              y como te ayudamos a tener la mejor experiencia de juego, mirálo
+              antes de proceder.
+            </Text>
+            <DualRow
+              left={<PinkEmptyButton small title="Revisar" />}
+              right={<PinkButton small title="Acepto" />}
+              separation={5}
+            />
+          </View>
+        </PopupDialog>
       </View>
     );
   };

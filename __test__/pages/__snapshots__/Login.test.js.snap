@@ -393,9 +393,12 @@ exports[`renders correctly 1`] = `
               undefined,
               undefined,
               undefined,
-              Object {
-                "height": 56,
-              },
+              Array [
+                Object {
+                  "height": 56,
+                },
+                Object {},
+              ],
               undefined,
               undefined,
             ]
@@ -768,9 +771,12 @@ exports[`renders correctly 1`] = `
               undefined,
               undefined,
               undefined,
-              Object {
-                "height": 56,
-              },
+              Array [
+                Object {
+                  "height": 56,
+                },
+                Object {},
+              ],
               undefined,
               undefined,
             ]
