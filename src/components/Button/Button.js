@@ -9,7 +9,7 @@ import { colors } from "theme";
 const MyButton = ({ style, backgroundColor, ...rest }) => (
   <Button
     large
-    containerViewStyle={[style, styles.main]}
+    containerViewStyle={[styles.main, style]}
     borderRadius={7}
     fontWeight="bold"
     backgroundColor={backgroundColor}
@@ -18,7 +18,7 @@ const MyButton = ({ style, backgroundColor, ...rest }) => (
 );
 
 MyButton.propTypes = {
-  style: PropTypes.object,
+  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
   backgroundColor: PropTypes.string,
 };
 MyButton.defaultProps = {

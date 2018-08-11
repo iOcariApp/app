@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`applies \`style\` prop 1`] = `
 <View
   style={
     Array [
@@ -17,7 +17,11 @@ exports[`renders correctly 1`] = `
           "marginTop": 0,
           "width": "100%",
         },
-        Object {},
+        Object {
+          "borderColor": "white",
+          "borderWidth": 2,
+          "width": "50%",
+        },
       ],
       Object {
         "borderRadius": 7,
@@ -62,7 +66,7 @@ exports[`renders correctly 1`] = `
           undefined,
           undefined,
           Object {
-            "backgroundColor": "#F50057",
+            "backgroundColor": "transparent",
           },
           Object {
             "borderRadius": 7,
@@ -116,7 +120,7 @@ exports[`renders correctly 1`] = `
 </View>
 `;
 
-exports[`when receiving props should apply them correctly 1`] = `
+exports[`renders correctly 1`] = `
 <View
   style={
     Array [
@@ -134,7 +138,8 @@ exports[`when receiving props should apply them correctly 1`] = `
           "width": "100%",
         },
         Object {
-          "width": 50,
+          "borderColor": "white",
+          "borderWidth": 2,
         },
       ],
       Object {
@@ -180,7 +185,7 @@ exports[`when receiving props should apply them correctly 1`] = `
           undefined,
           undefined,
           Object {
-            "backgroundColor": "#F50057",
+            "backgroundColor": "transparent",
           },
           Object {
             "borderRadius": 7,
