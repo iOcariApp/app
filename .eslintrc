@@ -15,6 +15,7 @@
     "global": false,
     "beforeEach": false,
     "shallow": false,
-    "module": false
+    "module": false,
+    "afterEach": false
   }
 }
