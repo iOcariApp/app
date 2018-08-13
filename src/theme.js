@@ -11,7 +11,7 @@ export const colors = {
 export const fontSizes = {
   small: 12,
   medium: 16,
-  big: 18,
+  large: 18,
 };
 
 export const padding = 30;
@@ -19,7 +19,7 @@ export const padding = 30;
 export const button = {
   height: 56,
   smallHeight: 40,
-  fontSize: fontSizes.big,
+  fontSize: fontSizes.large,
   radius: 4,
   border: 2,
 };

@@ -25,41 +25,12 @@ class PrivacyPopup extends React.PureComponent {
         dismissOnTouchOutside={false}
         width={288}
         height={396}
-        dialogStyle={{
-          paddingTop: 29,
-          paddingBottom: 35,
-          paddingLeft: 31,
-          paddingRight: 31,
-        }}
+        dialogStyle={styles.dialogStyle}
       >
-        <View
-          style={{
-            flex: 1,
-            flexDirection: "column",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
+        <View style={styles.main}>
           <Image source={privacyShield} />
-          <Text
-            style={{
-              fontSize: 20,
-              color: "#4E4E4E",
-              fontWeight: "500",
-              lineHeight: 24,
-              textAlign: "center",
-            }}
-          >
-            Tu seguridad es importante
-          </Text>
-          <Text
-            style={{
-              fontSize: 14,
-              color: "#4E4E4E",
-              lineHeight: 18,
-              textAlign: "center",
-            }}
-          >
+          <Text style={styles.title}>Tu seguridad es importante</Text>
+          <Text style={styles.text}>
             En nuestra política de privacidad de datos y términos y condiciones
             te explicamos claramente como manejamos tu información y como te
             ayudamos a tener la mejor experiencia de juego, mirálo antes de
