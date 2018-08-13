@@ -7,3 +7,10 @@ test("renders correctly", () => {
   const tree = renderer.create(<PinkButton />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test("passes down unused props", () => {
+  const tree = renderer
+    .create(<PinkButton style={{ width: "50%" }} />)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});

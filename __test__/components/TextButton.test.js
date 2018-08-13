@@ -12,3 +12,10 @@ test("applies props correctly", () => {
   const tree = renderer.create(<TextButton color="yellow" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test("passes down unused props", () => {
+  const tree = renderer
+    .create(<TextButton style={{ width: "50%" }} />)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
