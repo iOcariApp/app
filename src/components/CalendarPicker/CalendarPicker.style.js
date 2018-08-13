@@ -1,7 +1,17 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
+  dialogStyle: {
+    backgroundColor: "transparent",
+    width: "90%",
+  },
   main: {
-    paddingTop: 30,
+    backgroundColor: "white",
+  },
+  buttonsContainer: {
+    alignItems: "flex-end",
+  },
+  buttons: {
+    width: 190,
   },
 });
