@@ -75,8 +75,7 @@ class Register extends React.PureComponent {
     const isEmailValid = validEmail().valid;
     const isPasswordValid = this.samePassword().valid;
 
-    // isNickameValid && isEmailValid && isPasswordValid
-    if (true) {
+    if (isNickameValid && isEmailValid && isPasswordValid) {
       this.setState({ screen: 1 });
     }
   };
