@@ -1,5 +1,4 @@
 import React from "react";
-import renderer from "react-test-renderer";
 
 import CalendarPicker from "components/CalendarPicker";
 import DualRow from "components/DualRow";
@@ -20,8 +19,7 @@ const buttons = wrapper
   .dive();
 
 test("renders correctly", () => {
-  const tree = renderer.create(<CalendarPicker {...props} />).toJSON();
-  expect(tree).toMatchSnapshot();
+  testSnapshot(<CalendarPicker {...props} />);
 });
 
 test("onCancellation it closes the popup", () => {

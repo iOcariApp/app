@@ -1,20 +1,15 @@
 import React from "react";
-import renderer from "react-test-renderer";
 
 import Button from "components/Button";
 
 test("renders correctly", () => {
-  const tree = renderer.create(<Button />).toJSON();
-  expect(tree).toMatchSnapshot();
+  testSnapshot(<Button />);
 });
 
 describe("when receiving props", () => {
   it("should apply them correctly", () => {
-    const tree = renderer
-      .create(
-        <Button small style={{ width: 50 }} background="white" fontSize={6} />
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    testSnapshot(
+      <Button small style={{ width: 50 }} background="white" fontSize={6} />
+    );
   });
 });

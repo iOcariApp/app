@@ -1,5 +1,4 @@
 import React from "react";
-import renderer from "react-test-renderer";
 
 import Page1 from "pages/Register/Page1";
 
@@ -18,6 +17,5 @@ const props = {
 };
 
 test("renders correctly", () => {
-  const tree = renderer.create(<Page1 {...props} />).toJSON();
-  expect(tree).toMatchSnapshot();
+  testSnapshot(<Page1 {...props} />);
 });
