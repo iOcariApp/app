@@ -51,16 +51,10 @@ afterEach(() => {
   jest.clearAllMocks(); // remove call counts on mock functions
 });
 
-test("onLayout sets `myWidth` state", () => {
-  const width = 100;
-  wrapper.instance().onLayout({ nativeEvent: { layout: { width } } });
-  expect(wrapper.state("myWidth")).toBe(width);
-});
-
 describe("value change is correctly handled", () => {
   let textInput;
   beforeEach(() => {
-    textInput = wrapper.find(TextInput);
+    textInput = wrapper.dive().find(TextInput);
   });
 
   test("value updates", () => {
@@ -86,6 +80,7 @@ describe("component onPress is correctly handled", () => {
   describe("when the component is pressed by default", () => {
     it("should set `focused` state to true", () => {
       wrapper
+        .dive()
         .childAt(0)
         .childAt(0)
         .simulate("press");
@@ -109,6 +104,7 @@ describe("component onPress is correctly handled", () => {
       fakeTextInputDom();
 
       wrapper
+        .dive()
         .childAt(0)
         .childAt(0)
         .simulate("press");
@@ -143,7 +139,7 @@ describe("focus is correctly handled", () => {
 
   describe("when the input is focused and blurred", () => {
     it("should set `focused` state correctly", () => {
-      const textInput = wrapper.find(TextInput);
+      const textInput = wrapper.dive().find(TextInput);
 
       textInput.simulate("focus");
       expect(wrapper.state("focused")).toBe(true);
@@ -159,7 +155,7 @@ describe("focus is correctly handled", () => {
   describe("when `focused` state is true", () => {
     it("should render a <FillingBorder />", () => {
       wrapper.setState({ focused: true });
-      expect(wrapper.find(FillingBorder).length).toBe(1);
+      expect(wrapper.dive().find(FillingBorder).length).toBe(1);
     });
   });
 });
@@ -167,7 +163,7 @@ describe("focus is correctly handled", () => {
 describe("validation is correctly handled", () => {
   let textInput;
   beforeEach(() => {
-    textInput = wrapper.find(TextInput);
+    textInput = wrapper.dive().find(TextInput);
     jest.useFakeTimers();
   });
 
@@ -235,16 +231,16 @@ describe("validation is correctly handled", () => {
       });
 
       it("should render the validation message", () => {
-        expect(wrapper.children().length).toBe(2);
+        expect(wrapper.dive().children().length).toBe(2);
       });
 
       it("shouldn't render the validation message when empty", () => {
         wrapper.setState({ validationMessage: "" });
-        expect(wrapper.children().length).toBe(1);
+        expect(wrapper.dive().children().length).toBe(1);
       });
 
       it("should render the validation icon", () => {
-        const inputMain = wrapper.find('[data-test="input-main"]');
+        const inputMain = wrapper.dive().find('[data-test="input-main"]');
         expect(inputMain.children().length).toBe(3);
         expect(inputMain.childAt(2).props().name).toBe("check");
       });
@@ -253,10 +249,15 @@ describe("validation is correctly handled", () => {
         textInput.simulate("focus");
 
         // FillingBorder color
-        expect(wrapper.find(FillingBorder).props().color).toBe(colors.valid);
+        expect(
+          wrapper
+            .dive()
+            .find(FillingBorder)
+            .props().color
+        ).toBe(colors.valid);
 
         // Text color
-        const inputMain = wrapper.find('[data-test="input-main"]');
+        const inputMain = wrapper.dive().find('[data-test="input-main"]');
         expect(
           inputMain
             .childAt(1)
@@ -272,7 +273,7 @@ describe("validation is correctly handled", () => {
       });
 
       it("should render the validation message", () => {
-        expect(wrapper.children().length).toBe(2);
+        expect(wrapper.dive().children().length).toBe(2);
       });
 
       it("shouldn't render the validation message when empty", () => {
@@ -281,7 +282,7 @@ describe("validation is correctly handled", () => {
       });
 
       it("should render the validation icon", () => {
-        const inputMain = wrapper.find('[data-test="input-main"]');
+        const inputMain = wrapper.dive().find('[data-test="input-main"]');
         expect(inputMain.children().length).toBe(3);
         expect(inputMain.childAt(2).props().name).toBe("x");
       });
@@ -290,10 +291,15 @@ describe("validation is correctly handled", () => {
         textInput.simulate("focus");
 
         // FillingBorder color
-        expect(wrapper.find(FillingBorder).props().color).toBe(colors.invalid);
+        expect(
+          wrapper
+            .dive()
+            .find(FillingBorder)
+            .props().color
+        ).toBe(colors.invalid);
 
         // Text color
-        const inputMain = wrapper.find('[data-test="input-main"]');
+        const inputMain = wrapper.dive().find('[data-test="input-main"]');
         expect(
           inputMain
             .childAt(1)

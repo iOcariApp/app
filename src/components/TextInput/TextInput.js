@@ -13,6 +13,7 @@ import { colors } from "theme";
 import { Icon } from "react-native-elements";
 
 import FillingBorder from "components/FillingBorder";
+import DimensionsHelper from "components/DimensionsHelper";
 
 const VALIDATION_TIMEOUT = 1000;
 const ANIMATION_DURATION = 250;
@@ -24,7 +25,6 @@ class MyTextInput extends React.PureComponent {
     focused: false,
     showValid: false,
     showError: false,
-    myWidth: 2,
     labelSize: new Animated.Value(16),
   };
 
@@ -73,11 +73,6 @@ class MyTextInput extends React.PureComponent {
       this.setState({ focused: false, showValid: false, showError: false });
       this.playAnimation(ANIMATION_BACKWARDS);
     }
-  };
-
-  onLayout = event => {
-    const { width } = event.nativeEvent.layout;
-    this.setState({ myWidth: width });
   };
 
   focusInput = () => {
@@ -137,7 +132,6 @@ class MyTextInput extends React.PureComponent {
       showError,
       validationMessage,
       focused,
-      myWidth,
       labelSize,
     } = this.state;
     const { value, icon, label, ...rest } = this.props;
@@ -146,76 +140,80 @@ class MyTextInput extends React.PureComponent {
       (showValid || showError) && validationMessage !== "";
 
     return (
-      <View style={styles.main} onLayout={this.onLayout}>
-        <View style={styles.content}>
-          <TouchableWithoutFeedback onPress={this.focusInput}>
-            <View data-test="input-main" style={styles.inputMain}>
-              {icon && (
-                <Icon containerStyle={styles.icon} size={24} name={icon} />
-              )}
-              <View style={styles.input}>
-                <Animated.Text
+      <DimensionsHelper>
+        {({ width, onLayout }) => (
+          <View style={styles.main} onLayout={onLayout}>
+            <View style={styles.content}>
+              <TouchableWithoutFeedback onPress={this.focusInput}>
+                <View data-test="input-main" style={styles.inputMain}>
+                  {icon && (
+                    <Icon containerStyle={styles.icon} size={24} name={icon} />
+                  )}
+                  <View style={styles.input}>
+                    <Animated.Text
+                      style={[
+                        styles.label,
+                        {
+                          color: this.getColorLabel(),
+                          top: labelSize.interpolate({
+                            inputRange: [12, 16],
+                            outputRange: [0, 14],
+                          }),
+                          fontSize: labelSize,
+                        },
+                      ]}
+                    >
+                      {label}
+                    </Animated.Text>
+                    <TextInput
+                      ref={this.ref}
+                      style={styles.inputText}
+                      value={value}
+                      underlineColorAndroid={"transparent"}
+                      onChangeText={this.onChangeText}
+                      onFocus={this.onFocus}
+                      onBlur={this.onBlur}
+                      {...rest}
+                    />
+                  </View>
+                  {showValid && (
+                    <Icon
+                      color={colors.valid}
+                      type="feather"
+                      size={24}
+                      name="check"
+                    />
+                  )}
+                  {showError && (
+                    <Icon
+                      color={colors.invalid}
+                      type="feather"
+                      size={24}
+                      name="x"
+                    />
+                  )}
+                </View>
+              </TouchableWithoutFeedback>
+              {focused && (
+                <View
                   style={[
-                    styles.label,
-                    {
-                      color: this.getColorLabel(),
-                      top: labelSize.interpolate({
-                        inputRange: [12, 16],
-                        outputRange: [0, 14],
-                      }),
-                      fontSize: labelSize,
-                    },
+                    styles.bottomBorder,
+                    { transform: [{ translateX: -width / 2 }] },
                   ]}
                 >
-                  {label}
-                </Animated.Text>
-                <TextInput
-                  ref={this.ref}
-                  style={styles.inputText}
-                  value={value}
-                  underlineColorAndroid={"transparent"}
-                  onChangeText={this.onChangeText}
-                  onFocus={this.onFocus}
-                  onBlur={this.onBlur}
-                  {...rest}
-                />
-              </View>
-              {showValid && (
-                <Icon
-                  color={colors.valid}
-                  type="feather"
-                  size={24}
-                  name="check"
-                />
-              )}
-              {showError && (
-                <Icon
-                  color={colors.invalid}
-                  type="feather"
-                  size={24}
-                  name="x"
-                />
+                  <FillingBorder
+                    color={showError ? colors.invalid : colors.valid}
+                    duration={ANIMATION_DURATION}
+                  />
+                </View>
               )}
             </View>
-          </TouchableWithoutFeedback>
-          {focused && (
-            <View
-              style={[
-                styles.bottomBorder,
-                { transform: [{ translateX: -myWidth / 2 }] },
-              ]}
-            >
-              <FillingBorder
-                color={showError ? colors.invalid : colors.valid}
-                duration={ANIMATION_DURATION}
-              />
-            </View>
-          )}
-        </View>
-        {showValidationMessage && (
-          <Text style={styles.validation}>{validationMessage}</Text>
+            {showValidationMessage && (
+              <Text style={styles.validation}>{validationMessage}</Text>
+            )}
+          </View>
         )}
-      </View>
+      </DimensionsHelper>
     );
   };
 }
