@@ -11,7 +11,9 @@ test("renders correctly", () => {
 describe("when receiving props", () => {
   it("should apply them correctly", () => {
     const tree = renderer
-      .create(<Button small style={{ width: 50 }} background="white" />)
+      .create(
+        <Button small style={{ width: 50 }} background="white" fontSize={6} />
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

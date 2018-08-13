@@ -237,7 +237,7 @@ exports[`when receiving props should apply them correctly 1`] = `
                 "fontSize": 17.5,
               },
               Object {
-                "fontSize": 18,
+                "fontSize": 6,
               },
               undefined,
               undefined,
