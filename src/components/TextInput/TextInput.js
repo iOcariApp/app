@@ -29,8 +29,22 @@ class MyTextInput extends React.PureComponent {
   };
 
   componentDidMount = () => {
+    // Make sure correct UI is shown whenever value is not empty
     if (this.props.value !== "") {
-      this.onFocus();
+      this.setFocusedUI();
+      this.checkValue();
+    }
+  };
+
+  componentDidUpdate = prevProps => {
+    // Make sure correct UI is shown whenever value is set programatically
+    // i.e: calendar
+    if (
+      prevProps.value === "" &&
+      this.props.value !== "" &&
+      !this.state.focused
+    ) {
+      this.setFocusedUI();
       this.checkValue();
     }
   };
@@ -40,12 +54,17 @@ class MyTextInput extends React.PureComponent {
     this.setValidationTimeout();
 
     // Update value
-    this.props.onChangeValue(value.trim());
+    this.props.onChangeValue(value.trim(), this.props.keyLabel);
   };
 
   onFocus = () => {
-    this.setState({ focused: true });
-    this.playAnimation(ANIMATION_FORWARDS);
+    const { onClick } = this.props;
+    if (onClick) {
+      onClick();
+      this._textInput.blur(); // Don't show keyboard
+    } else {
+      this.setFocusedUI();
+    }
   };
 
   onBlur = () => {
@@ -65,16 +84,21 @@ class MyTextInput extends React.PureComponent {
     this._textInput.focus();
   };
 
-  setValidationTimeout = () => {
-    clearTimeout(this._checkTimeout);
-    this._checkTimeout = setTimeout(this.checkValue, VALIDATION_TIMEOUT);
-  };
-
   playAnimation = mode => {
     Animated.timing(this.state.labelSize, {
       toValue: mode === ANIMATION_FORWARDS ? 12 : 16,
       duration: ANIMATION_DURATION,
     }).start();
+  };
+
+  setFocusedUI = () => {
+    this.setState({ focused: true });
+    this.playAnimation(ANIMATION_FORWARDS);
+  };
+
+  setValidationTimeout = () => {
+    clearTimeout(this._checkTimeout);
+    this._checkTimeout = setTimeout(this.checkValue, VALIDATION_TIMEOUT);
   };
 
   checkValue = () => {
@@ -197,11 +221,13 @@ class MyTextInput extends React.PureComponent {
 }
 
 MyTextInput.propTypes = {
+  keyLabel: PropTypes.string,
   value: PropTypes.string.isRequired,
   icon: PropTypes.string,
   label: PropTypes.string,
   onChangeValue: PropTypes.func.isRequired,
   validation: PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 export default MyTextInput;

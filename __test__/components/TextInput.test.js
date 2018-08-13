@@ -8,27 +8,47 @@ import FillingBorder from "components/FillingBorder";
 
 let wrapper;
 let value = "";
-const onChangeValue = jest.fn(newValue => {
+let keyLabel = "";
+let onFocus;
+let onBlur;
+const myKeyLabel = "myLabel";
+
+const onChangeValue = jest.fn((newValue, newKeyLabel) => {
   value = newValue;
+  keyLabel = newKeyLabel;
 });
 const validationTrue = jest.fn(() => ({ valid: true, message: "Valid" }));
 const validationFalse = jest.fn(() => ({ valid: false, message: "Invalid" }));
+const onClick = jest.fn();
+
+// Mount doesn't work with react-native yet, so mock TextInput DOM functions
+const fakeTextInputDom = () => {
+  onFocus = jest.fn(wrapper.instance().onFocus);
+  onBlur = jest.fn(wrapper.instance().onBlur);
+  wrapper.instance().ref({
+    focus: onFocus,
+    blur: onBlur,
+  });
+};
 
 beforeEach(() => {
   value = "";
   wrapper = shallow(
     <MyTextInput
       icon="lock"
+      keyLabel={myKeyLabel}
       value={value}
       onChangeValue={onChangeValue}
       validation={validationTrue}
     />
   );
 
-  // Mount doesn't work with react-native yet
-  wrapper.instance().ref({
-    focus: wrapper.instance().onFocus,
-  });
+  fakeTextInputDom();
+});
+
+afterEach(() => {
+  jest.clearAllTimers(); // do not register calls to validation
+  jest.clearAllMocks(); // remove call counts on mock functions
 });
 
 test("onLayout sets `myWidth` state", () => {
@@ -54,6 +74,48 @@ describe("value change is correctly handled", () => {
     textInput.simulate("changeText", text);
     expect(value).toBe("hi");
   });
+
+  test("an optional keyLabel is passed with the value", () => {
+    const text = "hi";
+    textInput.simulate("changeText", text);
+    expect(keyLabel).toBe(myKeyLabel);
+  });
+});
+
+describe("component onPress is correctly handled", () => {
+  describe("when the component is pressed by default", () => {
+    it("should set `focused` state to true", () => {
+      wrapper
+        .childAt(0)
+        .childAt(0)
+        .simulate("press");
+
+      expect(wrapper.state("focused")).toBe(true);
+    });
+  });
+  describe("when the component is pressed with a onClick prop", () => {
+    it("should call the onClick prop and don't show the keyboard", () => {
+      wrapper = shallow(
+        <MyTextInput
+          icon="lock"
+          keyLabel={myKeyLabel}
+          value={value}
+          onChangeValue={onChangeValue}
+          validation={validationTrue}
+          onClick={onClick}
+        />
+      );
+
+      fakeTextInputDom();
+
+      wrapper
+        .childAt(0)
+        .childAt(0)
+        .simulate("press");
+      expect(onClick).toHaveBeenCalledTimes(1);
+      expect(onBlur).toHaveBeenCalledTimes(1);
+    });
+  });
 });
 
 describe("focus is correctly handled", () => {
@@ -62,11 +124,21 @@ describe("focus is correctly handled", () => {
   });
 
   test("focus is true if initial value", () => {
-    wrapper.setProps({ value: "enzo" });
-    wrapper.instance().componentDidMount();
+    // Shallow with initial value
+    wrapper = shallow(
+      <MyTextInput
+        icon="lock"
+        value="enzo"
+        onChangeValue={onChangeValue}
+        validation={validationTrue}
+      />
+    );
     expect(wrapper.state("focused")).toBe(true);
+  });
 
-    jest.clearAllMocks(); // remove call count on validation fn
+  test("focus is true if value is set from an external source (i.e: calendar)", () => {
+    wrapper.setProps({ value: "set from external" });
+    expect(wrapper.state("focused")).toBe(true);
   });
 
   describe("when the input is focused and blurred", () => {
@@ -80,16 +152,6 @@ describe("focus is correctly handled", () => {
       expect(wrapper.state("focused")).toBe(false);
 
       textInput.simulate("focus");
-      expect(wrapper.state("focused")).toBe(true);
-    });
-  });
-
-  describe("when the component is pressed", () => {
-    it("should set `focused` state to true", () => {
-      wrapper
-        .childAt(0)
-        .childAt(0)
-        .simulate("press");
       expect(wrapper.state("focused")).toBe(true);
     });
   });
@@ -110,11 +172,21 @@ describe("validation is correctly handled", () => {
   });
 
   test("validation is called if initial value", () => {
-    wrapper.setProps({ value: "enzo" });
-    wrapper.instance().componentDidMount();
+    // Shallow with initial value
+    wrapper = shallow(
+      <MyTextInput
+        icon="lock"
+        value="enzo"
+        onChangeValue={onChangeValue}
+        validation={validationTrue}
+      />
+    );
     expect(validationTrue).toHaveBeenCalledTimes(1);
+  });
 
-    jest.clearAllMocks(); // remove call count on validation fn
+  test("validation is called if value is set from an external source (i.e: calendar)", () => {
+    wrapper.setProps({ value: "set from external" });
+    expect(validationTrue).toHaveBeenCalledTimes(1);
   });
 
   test("validation timeout is set whenever the text changes", () => {
@@ -122,8 +194,6 @@ describe("validation is correctly handled", () => {
 
     textInput.simulate("changeText", "e");
     expect(setTimeout).toHaveBeenCalledTimes(1);
-
-    jest.clearAllTimers(); // do not register calls to validation
   });
 
   test("validation timeout should only be called when user finishes typing", () => {
