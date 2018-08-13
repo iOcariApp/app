@@ -2,6 +2,8 @@ import React from "react";
 
 import Page2 from "pages/Register/Page2";
 
+const noop = jest.fn();
+
 const props = {
   values: {
     name: "",
