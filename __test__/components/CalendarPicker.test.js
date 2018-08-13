@@ -14,17 +14,14 @@ const wrapper = shallow(<CalendarPicker {...props} />);
 wrapper.instance().ref({
   dismiss,
 });
-const buttons = wrapper.find(DualRow).dive();
+const buttons = wrapper
+  .dive()
+  .find(DualRow)
+  .dive();
 
 test("renders correctly", () => {
   const tree = renderer.create(<CalendarPicker {...props} />).toJSON();
   expect(tree).toMatchSnapshot();
-});
-
-test("onLayout sets `myHeight` state", () => {
-  const height = 100;
-  wrapper.instance().onLayout({ nativeEvent: { layout: { height } } });
-  expect(wrapper.state("myHeight")).toBe(height);
 });
 
 test("onCancellation it closes the popup", () => {

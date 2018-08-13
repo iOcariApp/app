@@ -10,6 +10,7 @@ import { Calendar } from "react-native-calendars";
 import "./translation";
 import TextButton from "components/Button/TextButton";
 import DualRow from "components/DualRow";
+import DimensionsHelper from "components/DimensionsHelper";
 
 const fromTopAnimation = new SlideAnimation({
   slideFrom: "top",
@@ -18,12 +19,6 @@ const fromTopAnimation = new SlideAnimation({
 class CalendarPicker extends React.PureComponent {
   state = {
     pickedDate: {},
-    myHeight: 0,
-  };
-
-  onLayout = event => {
-    const { height } = event.nativeEvent.layout;
-    this.setState({ myHeight: height });
   };
 
   ref = node => {
@@ -44,50 +39,51 @@ class CalendarPicker extends React.PureComponent {
   };
 
   render = () => {
-    const { pickedDate, myHeight } = this.state;
+    const { pickedDate } = this.state;
 
     return (
-      <PopupDialog
-        ref={this.ref}
-        dialogAnimation={fromTopAnimation}
-        dismissOnTouchOutside={false}
-        dialogStyle={[
-          styles.dialogStyle,
-          myHeight > 0 ? { height: myHeight } : {},
-        ]}
-      >
-        <View style={styles.main} onLayout={this.onLayout}>
-          <Calendar
-            markedDates={{
-              [pickedDate.dateString]: { selected: true },
-            }}
-            onDayPress={this.onDateChange}
-            firstDay={1}
-            hideExtraDays={true}
-          />
-          <View style={styles.buttonsContainer}>
-            <DualRow
-              style={styles.buttons}
-              left={
-                <TextButton
-                  title="CANCELAR"
-                  color={colors.mainColor}
-                  fontSize={14}
-                  onPress={this.onCancellation}
+      <DimensionsHelper>
+        {({ height, onLayout }) => (
+          <PopupDialog
+            ref={this.ref}
+            dialogAnimation={fromTopAnimation}
+            dismissOnTouchOutside={false}
+            dialogStyle={[styles.dialogStyle, height > 0 ? { height } : {}]}
+          >
+            <View style={styles.main} onLayout={onLayout}>
+              <Calendar
+                markedDates={{
+                  [pickedDate.dateString]: { selected: true },
+                }}
+                onDayPress={this.onDateChange}
+                firstDay={1}
+                hideExtraDays={true}
+              />
+              <View style={styles.buttonsContainer}>
+                <DualRow
+                  style={styles.buttons}
+                  left={
+                    <TextButton
+                      title="CANCELAR"
+                      color={colors.mainColor}
+                      fontSize={14}
+                      onPress={this.onCancellation}
+                    />
+                  }
+                  right={
+                    <TextButton
+                      title="OK"
+                      color={colors.mainColor}
+                      fontSize={14}
+                      onPress={this.onConfirmation}
+                    />
+                  }
                 />
-              }
-              right={
-                <TextButton
-                  title="OK"
-                  color={colors.mainColor}
-                  fontSize={14}
-                  onPress={this.onConfirmation}
-                />
-              }
-            />
-          </View>
-        </View>
-      </PopupDialog>
+              </View>
+            </View>
+          </PopupDialog>
+        )}
+      </DimensionsHelper>
     );
   };
 }
