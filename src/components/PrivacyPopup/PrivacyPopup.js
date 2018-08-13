@@ -23,8 +23,6 @@ class PrivacyPopup extends React.PureComponent {
         ref={refCallback}
         dialogAnimation={fromTopAnimation}
         dismissOnTouchOutside={false}
-        width={288}
-        height={396}
         dialogStyle={styles.dialogStyle}
       >
         <View style={styles.main}>
