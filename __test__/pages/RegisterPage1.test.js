@@ -2,8 +2,6 @@ import React from "react";
 
 import Page1 from "pages/Register/Page1";
 
-const noop = () => null;
-
 const props = {
   values: {
     nickname: "",

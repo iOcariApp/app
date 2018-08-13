@@ -4,7 +4,7 @@ import DimensionsHelper from "components/DimensionsHelper";
 
 const width = 100;
 const height = 100;
-const children = jest.fn();
+const children = noop;
 
 const wrapper = shallow(<DimensionsHelper>{children}</DimensionsHelper>);
 

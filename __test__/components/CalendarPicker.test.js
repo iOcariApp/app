@@ -5,7 +5,7 @@ import DualRow from "components/DualRow";
 
 const dismiss = jest.fn();
 const props = {
-  refCallback: jest.fn(),
+  refCallback: noop,
   changeCallback: jest.fn(),
 };
 

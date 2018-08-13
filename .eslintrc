@@ -18,5 +18,6 @@
     "module": false,
     "afterEach": false,
     "testSnapshot": false
+    "noop": false,
   }
 }

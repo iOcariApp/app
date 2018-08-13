@@ -4,7 +4,7 @@ import PrivacyPopup from "components/PrivacyPopup";
 import DualRow from "components/DualRow";
 
 const props = {
-  refCallback: jest.fn(),
+  refCallback: noop,
   readMore: jest.fn(),
   accept: jest.fn(),
 };

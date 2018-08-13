@@ -93,7 +93,7 @@ exports[`renders correctly 1`] = `
             keyLabel="nickname"
             onBlur={[Function]}
             onChangeText={[Function]}
-            onChangeValue={[Function]}
+            onChangeValue={[MockFunction]}
             onFocus={[Function]}
             style={
               Object {
@@ -192,7 +192,7 @@ exports[`renders correctly 1`] = `
             keyboardType="email-address"
             onBlur={[Function]}
             onChangeText={[Function]}
-            onChangeValue={[Function]}
+            onChangeValue={[MockFunction]}
             onFocus={[Function]}
             style={
               Object {
@@ -290,7 +290,7 @@ exports[`renders correctly 1`] = `
             keyLabel="password"
             onBlur={[Function]}
             onChangeText={[Function]}
-            onChangeValue={[Function]}
+            onChangeValue={[MockFunction]}
             onFocus={[Function]}
             secureTextEntry={true}
             style={
@@ -389,7 +389,7 @@ exports[`renders correctly 1`] = `
             keyLabel="passwordDouble"
             onBlur={[Function]}
             onChangeText={[Function]}
-            onChangeValue={[Function]}
+            onChangeValue={[MockFunction]}
             onFocus={[Function]}
             secureTextEntry={true}
             style={
@@ -398,7 +398,7 @@ exports[`renders correctly 1`] = `
               }
             }
             underlineColorAndroid="transparent"
-            validation={[Function]}
+            validation={[MockFunction]}
             value=""
           />
         </View>
