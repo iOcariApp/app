@@ -9,6 +9,7 @@ const props = {
   readMore: jest.fn(),
   accept: jest.fn(),
 };
+
 const wrapper = shallow(<PrivacyPopup {...props} />);
 const buttons = wrapper.find(DualRow).dive();
 
