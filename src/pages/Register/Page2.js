@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { ScrollView } from "react-native";
 import styles from "./Register.style";
 
+import validValidation from "utils/validation/validValidation";
+
 import TextInput from "components/TextInput";
 import DualRow from "components/DualRow";
 import Button from "components/Button";
@@ -10,64 +12,64 @@ import WhiteEmptyButton from "components/Button/WhiteEmptyButton";
 
 const Page2 = ({
   values: { name, surname, birthdate, address, country, city, postalCode },
-  logic: {
-    onChangeName,
-    onChangeSurname,
-    onChangeBirthdate,
-    onChangeAddress,
-    onChangeCountry,
-    onChangeCity,
-    onChangePostalCode,
-    validValidation,
-    goPrev,
-    showPrivacyModal,
-  },
+  onChangeValue,
+  goPrev,
+  showPrivacyPopup,
+  showCalendarBirthdate,
 }) => (
   <ScrollView style={styles.containerScrollable}>
     <TextInput
+      keyLabel="name"
       label="Nombre"
       value={name}
-      onChangeValue={onChangeName}
+      onChangeValue={onChangeValue}
       validation={validValidation}
     />
     <TextInput
+      keyLabel="surname"
       label="Apellido"
       value={surname}
-      onChangeValue={onChangeSurname}
+      onChangeValue={onChangeValue}
       validation={validValidation}
     />
     <TextInput
+      keyLabel="birthdate"
       label="Fecha de nacimiento"
       value={birthdate}
-      onChangeValue={onChangeBirthdate}
+      onChangeValue={onChangeValue}
       validation={validValidation}
+      onClick={showCalendarBirthdate}
     />
     <TextInput
+      keyLabel="address"
       label="Dirección"
       value={address}
-      onChangeValue={onChangeAddress}
+      onChangeValue={onChangeValue}
       validation={validValidation}
     />
     <TextInput
+      keyLabel="country"
       label="País"
       value={country}
-      onChangeValue={onChangeCountry}
+      onChangeValue={onChangeValue}
       validation={validValidation}
     />
     <DualRow
       left={
         <TextInput
+          keyLabel="city"
           label="Ciudad"
           value={city}
-          onChangeValue={onChangeCity}
+          onChangeValue={onChangeValue}
           validation={validValidation}
         />
       }
       right={
         <TextInput
+          keyLabel="postalCode"
           label="Código Postal"
           value={postalCode}
-          onChangeValue={onChangePostalCode}
+          onChangeValue={onChangeValue}
           validation={validValidation}
         />
       }
@@ -76,7 +78,7 @@ const Page2 = ({
     <DualRow
       style={styles.marginButtons}
       left={<WhiteEmptyButton title="ATRÁS" onPress={goPrev} />}
-      right={<Button title="¡LISTO!" onPress={showPrivacyModal} />}
+      right={<Button title="¡LISTO!" onPress={showPrivacyPopup} />}
       separation={7}
     />
   </ScrollView>
@@ -92,18 +94,10 @@ Page2.propTypes = {
     city: PropTypes.string,
     postalCode: PropTypes.string,
   }),
-  logic: PropTypes.shape({
-    onChangeName: PropTypes.func,
-    onChangeSurname: PropTypes.func,
-    onChangeBirthdate: PropTypes.func,
-    onChangeAddress: PropTypes.func,
-    onChangeCountry: PropTypes.func,
-    onChangeCity: PropTypes.func,
-    onChangePostalCode: PropTypes.func,
-    validValidation: PropTypes.func,
-    goPrev: PropTypes.func,
-    showPrivacyModal: PropTypes.func,
-  }),
+  onChangeValue: PropTypes.func,
+  goPrev: PropTypes.func,
+  showPrivacyPopup: PropTypes.func,
+  showCalendarBirthdate: PropTypes.func,
 };
 
 export default Page2;

@@ -90,6 +90,7 @@ exports[`renders correctly 1`] = `
             </Text>
             <TextInput
               allowFontScaling={true}
+              keyLabel="name"
               onBlur={[Function]}
               onChangeText={[Function]}
               onChangeValue={[Function]}
@@ -187,6 +188,7 @@ exports[`renders correctly 1`] = `
             </Text>
             <TextInput
               allowFontScaling={true}
+              keyLabel="surname"
               onBlur={[Function]}
               onChangeText={[Function]}
               onChangeValue={[Function]}
@@ -284,9 +286,11 @@ exports[`renders correctly 1`] = `
             </Text>
             <TextInput
               allowFontScaling={true}
+              keyLabel="birthdate"
               onBlur={[Function]}
               onChangeText={[Function]}
               onChangeValue={[Function]}
+              onClick={[Function]}
               onFocus={[Function]}
               style={
                 Object {
@@ -381,6 +385,7 @@ exports[`renders correctly 1`] = `
             </Text>
             <TextInput
               allowFontScaling={true}
+              keyLabel="address"
               onBlur={[Function]}
               onChangeText={[Function]}
               onChangeValue={[Function]}
@@ -478,6 +483,7 @@ exports[`renders correctly 1`] = `
             </Text>
             <TextInput
               allowFontScaling={true}
+              keyLabel="country"
               onBlur={[Function]}
               onChangeText={[Function]}
               onChangeValue={[Function]}
@@ -600,6 +606,7 @@ exports[`renders correctly 1`] = `
                 </Text>
                 <TextInput
                   allowFontScaling={true}
+                  keyLabel="city"
                   onBlur={[Function]}
                   onChangeText={[Function]}
                   onChangeValue={[Function]}
@@ -705,6 +712,7 @@ exports[`renders correctly 1`] = `
                 </Text>
                 <TextInput
                   allowFontScaling={true}
+                  keyLabel="postalCode"
                   onBlur={[Function]}
                   onChangeText={[Function]}
                   onChangeValue={[Function]}

@@ -90,6 +90,7 @@ exports[`renders correctly 1`] = `
           </Text>
           <TextInput
             allowFontScaling={true}
+            keyLabel="nickname"
             onBlur={[Function]}
             onChangeText={[Function]}
             onChangeValue={[Function]}
@@ -187,6 +188,7 @@ exports[`renders correctly 1`] = `
           </Text>
           <TextInput
             allowFontScaling={true}
+            keyLabel="email"
             keyboardType="email-address"
             onBlur={[Function]}
             onChangeText={[Function]}
@@ -285,6 +287,7 @@ exports[`renders correctly 1`] = `
           </Text>
           <TextInput
             allowFontScaling={true}
+            keyLabel="password"
             onBlur={[Function]}
             onChangeText={[Function]}
             onChangeValue={[Function]}
@@ -383,6 +386,7 @@ exports[`renders correctly 1`] = `
           </Text>
           <TextInput
             allowFontScaling={true}
+            keyLabel="passwordDouble"
             onBlur={[Function]}
             onChangeText={[Function]}
             onChangeValue={[Function]}

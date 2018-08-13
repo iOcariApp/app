@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 
 import Page1 from "pages/Register/Page1";
 
-const noop = () => {};
+const noop = () => null;
 
 const props = {
   values: {
@@ -12,16 +12,9 @@ const props = {
     password: "",
     passwordDouble: "",
   },
-  logic: {
-    onChangeNickname: noop,
-    onChangeEmail: noop,
-    onChangePassword: noop,
-    onChangePasswordDouble: noop,
-    availableNickname: noop,
-    validEmail: noop,
-    passwordStrength: noop,
-    samePassword: noop,
-  },
+  onChangeValue: noop,
+  samePassword: noop,
+  goNext: noop,
 };
 
 test("renders correctly", () => {

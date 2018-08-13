@@ -2,19 +2,16 @@ import React from "react";
 import { View, StatusBar, Image, Text } from "react-native";
 import styles from "./Register.style";
 
-import validEmail from "utils/validEmail";
+import availableNickname from "utils/validation/availableNickname";
+import validEmail from "utils/validation/validEmail";
 
 import plainLogo from "assets/plain-logo/plain-logo.png";
-import privacyShield from "assets/privacy-shield/privacy-shield.png";
-
-import PopupDialog, { SlideAnimation } from "react-native-popup-dialog";
 
 import Page1 from "./Page1";
 import Page2 from "./Page2";
 
-import DualRow from "components/DualRow";
-import PinkButton from "components/Button/PinkButton";
-import PinkEmptyButton from "components/Button/PinkEmptyButton";
+import CalendarPicker from "components/CalendarPicker";
+import PrivacyPopup from "components/PrivacyPopup";
 
 class Register extends React.PureComponent {
   state = {
@@ -32,64 +29,31 @@ class Register extends React.PureComponent {
     postalCode: "",
   };
 
-  onChangeNickname = nickname => {
-    this.setState({ nickname });
+  /* Refs handling for popups */
+  refPrivacyPopup = node => {
+    this._privacyPopup = node;
   };
-  onChangeEmail = email => {
-    this.setState({ email });
-  };
-  onChangePassword = password => {
-    this.setState({ password });
-  };
-  onChangePasswordDouble = passwordDouble => {
-    this.setState({ passwordDouble });
-  };
-  onChangeName = name => {
-    this.setState({ name });
-  };
-  onChangeSurname = surname => {
-    this.setState({ surname });
-  };
-  onChangeBirthdate = birthdate => {
-    this.setState({ birthdate });
-  };
-  onChangeAddress = address => {
-    this.setState({ address });
-  };
-  onChangeCountry = country => {
-    this.setState({ country });
-  };
-  onChangeCity = city => {
-    this.setState({ city });
-  };
-  onChangePostalCode = postalCode => {
-    this.setState({ postalCode });
+  showPrivacyPopup = () => {
+    this._privacyPopup.show();
   };
 
-  availableNickname = () => {
-    return {
-      valid: true,
-      message: "Disponible",
-    };
+  refCalendar = node => {
+    this._calendarBirthdate = node;
+  };
+  showCalendarBirthdate = () => {
+    this._calendarBirthdate.show();
   };
 
-  validEmail = () => {
-    const { email } = this.state;
-    const valid = validEmail(email);
-
-    return {
-      valid,
-      message: valid ? "Correcto" : "Incorrecto",
-    };
+  /* Update handlers */
+  onChangeValue = (value, label) => {
+    this.setState({ [label]: value });
+  };
+  onChangeBirthdate = date => {
+    this.setState({ birthdate: JSON.stringify(date) });
+    this._calendarBirthdate.dismiss();
   };
 
-  passwordStrength = () => {
-    return {
-      valid: true,
-      message: "Fuerte",
-    };
-  };
-
+  /* Global validations */
   samePassword = () => {
     const { password, passwordDouble } = this.state;
     if (password === passwordDouble) {
@@ -105,31 +69,20 @@ class Register extends React.PureComponent {
     };
   };
 
-  validValidation = () => {
-    return {
-      valid: true,
-      message: "",
-    };
-  };
-
+  /* Navigation */
   goNext = () => {
-    const validNickame = this.availableNickname().valid;
-    const validEmail = this.validEmail().valid;
-    const validPassword = this.samePassword().valid;
+    const isNickameValid = availableNickname().valid;
+    const isEmailValid = validEmail().valid;
+    const isPasswordValid = this.samePassword().valid;
 
-    if (validNickame && validEmail && validPassword) {
+    // isNickameValid && isEmailValid && isPasswordValid
+    if (true) {
       this.setState({ screen: 1 });
     }
   };
-
   goPrev = () => {
     this.setState({ screen: 0 });
   };
-
-  showPrivacyModal = () => {
-    this._popupDialog.show();
-  };
-
   finish = () => {
     console.log("Registered", this.state); // eslint-disable-line no-console
   };
@@ -147,69 +100,31 @@ class Register extends React.PureComponent {
           </Text>
         )}
         {screen === 0 ? (
-          <Page1 values={this.state} logic={this} />
+          <Page1
+            values={this.state}
+            onChangeValue={this.onChangeValue}
+            samePassword={this.samePassword}
+            goNext={this.goNext}
+          />
         ) : (
-          <Page2 values={this.state} logic={this} />
+          <Page2
+            values={this.state}
+            onChangeValue={this.onChangeValue}
+            goPrev={this.goPrev}
+            showPrivacyPopup={this.showPrivacyPopup}
+            showCalendarBirthdate={this.showCalendarBirthdate}
+          />
         )}
-        <PopupDialog
-          ref={node => {
-            this._popupDialog = node;
-          }}
-          dialogAnimation={
-            new SlideAnimation({
-              slideFrom: "top",
-            })
-          }
-          dismissOnTouchOutside={false}
-          width={288}
-          height={396}
-          dialogStyle={{
-            paddingTop: 29,
-            paddingBottom: 35,
-            paddingLeft: 31,
-            paddingRight: 31,
-          }}
-        >
-          <View
-            style={{
-              flex: 1,
-              flexDirection: "column",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <Image source={privacyShield} />
-            <Text
-              style={{
-                fontSize: 20,
-                color: "#4E4E4E",
-                fontWeight: "500",
-                lineHeight: 24,
-                textAlign: "center",
-              }}
-            >
-              Tu seguridad es importante
-            </Text>
-            <Text
-              style={{
-                fontSize: 14,
-                color: "#4E4E4E",
-                lineHeight: 18,
-                textAlign: "center",
-              }}
-            >
-              En nuestra política de privacidad de datos y términos y
-              condiciones te explicamos claramente como manejamos tu información
-              y como te ayudamos a tener la mejor experiencia de juego, mirálo
-              antes de proceder.
-            </Text>
-            <DualRow
-              left={<PinkEmptyButton small title="Revisar" />}
-              right={<PinkButton small title="Acepto" />}
-              separation={5}
-            />
-          </View>
-        </PopupDialog>
+
+        <PrivacyPopup
+          refCallback={this.refPrivacyPopup}
+          readMore={() => null}
+          accept={this.finish}
+        />
+        <CalendarPicker
+          refCallback={this.refCalendar}
+          changeCallback={this.onChangeBirthdate}
+        />
       </View>
     );
   };

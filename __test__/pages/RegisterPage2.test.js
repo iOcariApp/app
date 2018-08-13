@@ -15,16 +15,10 @@ const props = {
     city: "",
     postalCode: "",
   },
-  logic: {
-    onChangeName: noop,
-    onChangeSurname: noop,
-    onChangeBirthdate: noop,
-    onChangeAddress: noop,
-    onChangeCountry: noop,
-    onChangeCity: noop,
-    onChangePostalCode: noop,
-    validValidation: noop,
-  },
+  onChangeValue: noop,
+  goPrev: noop,
+  showPrivacyPopup: noop,
+  showCalendarBirthdate: noop,
 };
 
 test("renders correctly", () => {

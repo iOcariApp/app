@@ -6,45 +6,45 @@ import styles from "./Register.style";
 import TextInput from "components/TextInput";
 import Button from "components/Button";
 
+import availableNickname from "utils/validation/availableNickname";
+import validEmail from "utils/validation/validEmail";
+import passwordStrength from "utils/validation/passwordStrength";
+
 const Page1 = ({
   values: { nickname, email, password, passwordDouble },
-  logic: {
-    onChangeNickname,
-    onChangeEmail,
-    onChangePassword,
-    onChangePasswordDouble,
-    availableNickname,
-    validEmail,
-    passwordStrength,
-    samePassword,
-    goNext,
-  },
+  onChangeValue,
+  samePassword,
+  goNext,
 }) => (
   <View style={styles.container}>
     <TextInput
+      keyLabel="nickname"
       label="Nombre de jugador"
       value={nickname}
-      onChangeValue={onChangeNickname}
+      onChangeValue={onChangeValue}
       validation={availableNickname}
     />
     <TextInput
+      keyLabel="email"
       label="E-mail"
       value={email}
-      onChangeValue={onChangeEmail}
+      onChangeValue={onChangeValue}
       validation={validEmail}
       keyboardType="email-address"
     />
     <TextInput
-      value={password}
-      onChangeValue={onChangePassword}
+      keyLabel="password"
       label="Contraseña"
+      value={password}
+      onChangeValue={onChangeValue}
       validation={passwordStrength}
       secureTextEntry
     />
     <TextInput
-      value={passwordDouble}
-      onChangeValue={onChangePasswordDouble}
+      keyLabel="passwordDouble"
       label="Repetir contraseña"
+      value={passwordDouble}
+      onChangeValue={onChangeValue}
       validation={samePassword}
       secureTextEntry
     />
@@ -59,17 +59,9 @@ Page1.propTypes = {
     password: PropTypes.string,
     passwordDouble: PropTypes.string,
   }),
-  logic: PropTypes.shape({
-    onChangeNickname: PropTypes.func,
-    onChangeEmail: PropTypes.func,
-    onChangePassword: PropTypes.func,
-    onChangePasswordDouble: PropTypes.func,
-    availableNickname: PropTypes.func,
-    validEmail: PropTypes.func,
-    passwordStrength: PropTypes.func,
-    samePassword: PropTypes.func,
-    goNext: PropTypes.func,
-  }),
+  onChangeValue: PropTypes.func,
+  samePassword: PropTypes.func,
+  goNext: PropTypes.func,
 };
 
 export default Page1;
