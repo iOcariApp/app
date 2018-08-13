@@ -4,6 +4,7 @@ import styles from "./Register.style";
 
 import availableNickname from "utils/validation/availableNickname";
 import validEmail from "utils/validation/validEmail";
+import samePassword from "utils/validation/samePassword";
 
 import plainLogo from "assets/plain-logo/plain-logo.png";
 
@@ -56,23 +57,14 @@ class Register extends React.PureComponent {
   /* Global validations */
   samePassword = () => {
     const { password, passwordDouble } = this.state;
-    if (password === passwordDouble) {
-      return {
-        valid: true,
-        message: "Coinciden",
-      };
-    }
-
-    return {
-      valid: false,
-      message: "Deben coincidir",
-    };
+    return samePassword(password, passwordDouble);
   };
 
   /* Navigation */
   goNext = () => {
-    const isNickameValid = availableNickname().valid;
-    const isEmailValid = validEmail().valid;
+    const { nickname, email } = this.state;
+    const isNickameValid = availableNickname(nickname).valid;
+    const isEmailValid = validEmail(email).valid;
     const isPasswordValid = this.samePassword().valid;
 
     if (isNickameValid && isEmailValid && isPasswordValid) {
