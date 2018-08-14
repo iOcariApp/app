@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View } from "react-native";
 import styles from "./Register.style";
 
 import TextInput from "components/TextInput";
