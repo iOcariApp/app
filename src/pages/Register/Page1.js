@@ -5,6 +5,7 @@ import styles from "./Register.style";
 
 import TextInput from "components/TextInput";
 import Button from "components/Button";
+import AutoFocusForm from "components/AutoFocusForm";
 
 import availableNickname from "utils/validation/availableNickname";
 import validEmail from "utils/validation/validEmail";
@@ -16,7 +17,7 @@ const Page1 = ({
   samePassword,
   goNext,
 }) => (
-  <View style={styles.container}>
+  <AutoFocusForm style={styles.container}>
     <TextInput
       keyLabel="nickname"
       label="Nombre de jugador"
@@ -49,7 +50,7 @@ const Page1 = ({
       secureTextEntry
     />
     <Button title="SIGUIENTE" style={styles.marginButtons} onPress={goNext} />
-  </View>
+  </AutoFocusForm>
 );
 
 Page1.propTypes = {

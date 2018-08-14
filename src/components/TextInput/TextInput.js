@@ -1,12 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  Animated,
-  View,
-  Text,
-  TextInput,
-  TouchableWithoutFeedback,
-} from "react-native";
+import { Animated, View, Text, TouchableWithoutFeedback } from "react-native";
 import styles from "./TextInput.style";
 import { colors } from "theme";
 
@@ -14,6 +8,7 @@ import { Icon } from "react-native-elements";
 
 import FillingBorder from "components/FillingBorder";
 import DimensionsHelper from "components/DimensionsHelper";
+import { TextInput } from "components/AutoFocusForm";
 
 const VALIDATION_TIMEOUT = 1000;
 const ANIMATION_DURATION = 250;
@@ -166,7 +161,7 @@ class MyTextInput extends React.PureComponent {
                       {label}
                     </Animated.Text>
                     <TextInput
-                      ref={this.ref}
+                      refCallback={this.ref}
                       style={styles.inputText}
                       value={value}
                       underlineColorAndroid={"transparent"}

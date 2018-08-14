@@ -9,6 +9,7 @@ import plainLogo from "assets/plain-logo/plain-logo.png";
 import TextInput from "components/TextInput";
 import Button from "components/Button";
 import BlueButton from "components/Button/BlueButton";
+import AutoFocusForm from "components/AutoFocusForm";
 
 class Login extends React.PureComponent {
   state = {
@@ -42,7 +43,7 @@ class Login extends React.PureComponent {
         <StatusBar hidden />
         <View style={[styles.padding, styles.content]}>
           <Image style={styles.logo} source={plainLogo} />
-          <View>
+          <AutoFocusForm>
             <TextInput
               keyboardType="email-address"
               value={email}
@@ -57,7 +58,7 @@ class Login extends React.PureComponent {
               label="Contraseña"
               icon="lock"
             />
-          </View>
+          </AutoFocusForm>
           <Button title="ACCEDER" onPress={this.login} loading={fetching} />
           <View style={styles.socialLogin}>
             <SocialIcon
