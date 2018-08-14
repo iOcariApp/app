@@ -9,7 +9,7 @@ import TextInput from "components/TextInput";
 import DualRow from "components/DualRow";
 import Button from "components/Button";
 import WhiteEmptyButton from "components/Button/WhiteEmptyButton";
-import AutoFocusForm from "components/AutoFocusForm";
+import { Form } from "components/AutoFocusForm";
 
 const Page2 = ({
   values: { name, surname, birthdate, address, country, city, postalCode },
@@ -19,7 +19,7 @@ const Page2 = ({
   showCalendarBirthdate,
 }) => (
   <ScrollView style={styles.containerScrollable}>
-    <AutoFocusForm>
+    <Form>
       <TextInput
         keyLabel="name"
         label="Nombre"
@@ -83,7 +83,7 @@ const Page2 = ({
         right={<Button title="¡LISTO!" onPress={showPrivacyPopup} />}
         separation={7}
       />
-    </AutoFocusForm>
+    </Form>
   </ScrollView>
 );
 

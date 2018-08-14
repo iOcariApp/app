@@ -37,7 +37,7 @@ TextInput.propTypes = {
   refCallback: PropTypes.func,
 };
 
-class AutoFocusForm extends React.Component {
+export class Form extends React.Component {
   constructor() {
     super();
     this._inputs = [];
@@ -142,11 +142,9 @@ class AutoFocusForm extends React.Component {
   };
 }
 
-AutoFocusForm.propTypes = {
+Form.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.arrayOf([PropTypes.node]),
   ]),
 };
-
-export default AutoFocusForm;
