@@ -1,10 +1,10 @@
 import React from "react";
-import { TextInput } from "react-native";
 
 import { colors } from "theme";
 
 import MyTextInput from "components/TextInput";
 import FillingBorder from "components/FillingBorder";
+import { TextInput } from "components/AutoFocusForm";
 
 let wrapper;
 let value = "";

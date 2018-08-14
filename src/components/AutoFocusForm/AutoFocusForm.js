@@ -1,31 +1,41 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { View, TextInput as Input } from "react-native";
 
 export class TextInput extends React.Component {
+  ref = node => {
+    const { refCallback, inputRef } = this.props;
+    if (refCallback) refCallback(node);
+    inputRef(node);
+  };
+
+  onSubmitEditing = () => {
+    const { onEnter, onSubmitEditing } = this.props;
+    if (onEnter) onEnter();
+    if (onSubmitEditing) onSubmitEditing();
+  };
+
   render = () => {
     const {
-      onSubmitEditing,
-      onEnter,
-      inputRef,
-      refCallback,
+      onSubmitEditing, // eslint-disable-line no-unused-vars
+      onEnter, // eslint-disable-line no-unused-vars
+      inputRef, // eslint-disable-line no-unused-vars
+      refCallback, // eslint-disable-line no-unused-vars
       ...props
     } = this.props;
 
     return (
-      <Input
-        ref={node => {
-          if (refCallback) refCallback(node);
-          inputRef(node);
-        }}
-        onSubmitEditing={() => {
-          if (onEnter) onEnter();
-          if (onSubmitEditing) onSubmitEditing();
-        }}
-        {...props}
-      />
+      <Input ref={this.ref} onSubmitEditing={this.onSubmitEditing} {...props} />
     );
   };
 }
+
+TextInput.propTypes = {
+  onSubmitEditing: PropTypes.func,
+  onEnter: PropTypes.func,
+  inputRef: PropTypes.func,
+  refCallback: PropTypes.func,
+};
 
 class AutoFocusForm extends React.Component {
   constructor() {
@@ -61,52 +71,56 @@ class AutoFocusForm extends React.Component {
     let inserted = 0;
     const modifiedChildren = React.Children.map(children, child => {
       let totalInserted = inserted + alreadyInserted;
-      console.log(child.type.name);
+
       if (!child) return;
       if (child.props.children) {
+        // Insert children
         const { newInserted, newChildren } = this.renderChildren(
           child.props.children,
           count,
           totalInserted
         );
         inserted = inserted + newInserted;
+
         return React.cloneElement(child, {
           children: newChildren,
         });
       }
       if (child.type.name === "DualRow") {
         const { left, right } = child.props;
-        console.log(left.type.name, right.type.name);
+
+        // Insert TextInputs on left
         const {
           newInserted: leftInserted,
           newChildren: leftModified,
         } = this.renderChildren(left, count, totalInserted);
         inserted = inserted + leftInserted;
         totalInserted = inserted + alreadyInserted;
+
+        // Insert TextInputs on right
         const {
           newInserted: rightInserted,
           newChildren: rightModified,
         } = this.renderChildren(right, count, totalInserted);
         inserted = inserted + rightInserted;
-        totalInserted = inserted + alreadyInserted;
+
         return React.cloneElement(child, {
           left: leftModified,
           right: rightModified,
         });
       }
       if (child.type.name !== "MyTextInput") {
-        console.log("No TextInput");
         return child;
       }
 
+      // We found a TextInput
+      inserted++;
+
       const isLastTextInput = totalInserted === count - 1;
       const nextPosition = totalInserted;
-      console.log(nextPosition);
 
-      inserted++;
       return React.cloneElement(child, {
         onEnter: () => {
-          console.log(nextPosition + 1);
           !isLastTextInput ? this._inputs[nextPosition + 1].focus() : null;
         },
         inputRef: node => {
@@ -127,5 +141,12 @@ class AutoFocusForm extends React.Component {
     );
   };
 }
+
+AutoFocusForm.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf([PropTypes.node]),
+  ]),
+};
 
 export default AutoFocusForm;
