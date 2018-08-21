@@ -31,14 +31,8 @@ exports[`renders correctly 1`] = `
           }
         >
           <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
             accessible={true}
             data-test="input-main"
-            hitSlop={undefined}
-            nativeID={undefined}
-            onLayout={undefined}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -62,7 +56,6 @@ exports[`renders correctly 1`] = `
                 "width": "100%",
               }
             }
-            testID={undefined}
           >
             <View
               style={
@@ -76,7 +69,6 @@ exports[`renders correctly 1`] = `
               <Text
                 accessible={true}
                 allowFontScaling={true}
-                collapsable={undefined}
                 ellipsizeMode="tail"
                 style={
                   Object {
@@ -131,14 +123,8 @@ exports[`renders correctly 1`] = `
           }
         >
           <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
             accessible={true}
             data-test="input-main"
-            hitSlop={undefined}
-            nativeID={undefined}
-            onLayout={undefined}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -162,7 +148,6 @@ exports[`renders correctly 1`] = `
                 "width": "100%",
               }
             }
-            testID={undefined}
           >
             <View
               style={
@@ -176,7 +161,6 @@ exports[`renders correctly 1`] = `
               <Text
                 accessible={true}
                 allowFontScaling={true}
-                collapsable={undefined}
                 ellipsizeMode="tail"
                 style={
                   Object {
@@ -231,14 +215,8 @@ exports[`renders correctly 1`] = `
           }
         >
           <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
             accessible={true}
             data-test="input-main"
-            hitSlop={undefined}
-            nativeID={undefined}
-            onLayout={undefined}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -262,7 +240,6 @@ exports[`renders correctly 1`] = `
                 "width": "100%",
               }
             }
-            testID={undefined}
           >
             <View
               style={
@@ -276,7 +253,6 @@ exports[`renders correctly 1`] = `
               <Text
                 accessible={true}
                 allowFontScaling={true}
-                collapsable={undefined}
                 ellipsizeMode="tail"
                 style={
                   Object {
@@ -332,14 +308,8 @@ exports[`renders correctly 1`] = `
           }
         >
           <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
             accessible={true}
             data-test="input-main"
-            hitSlop={undefined}
-            nativeID={undefined}
-            onLayout={undefined}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -363,7 +333,6 @@ exports[`renders correctly 1`] = `
                 "width": "100%",
               }
             }
-            testID={undefined}
           >
             <View
               style={
@@ -377,7 +346,6 @@ exports[`renders correctly 1`] = `
               <Text
                 accessible={true}
                 allowFontScaling={true}
-                collapsable={undefined}
                 ellipsizeMode="tail"
                 style={
                   Object {
@@ -432,14 +400,8 @@ exports[`renders correctly 1`] = `
           }
         >
           <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
             accessible={true}
             data-test="input-main"
-            hitSlop={undefined}
-            nativeID={undefined}
-            onLayout={undefined}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -463,7 +425,6 @@ exports[`renders correctly 1`] = `
                 "width": "100%",
               }
             }
-            testID={undefined}
           >
             <View
               style={
@@ -477,7 +438,6 @@ exports[`renders correctly 1`] = `
               <Text
                 accessible={true}
                 allowFontScaling={true}
-                collapsable={undefined}
                 ellipsizeMode="tail"
                 style={
                   Object {
@@ -557,14 +517,8 @@ exports[`renders correctly 1`] = `
               }
             >
               <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
                 accessible={true}
                 data-test="input-main"
-                hitSlop={undefined}
-                nativeID={undefined}
-                onLayout={undefined}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -588,7 +542,6 @@ exports[`renders correctly 1`] = `
                     "width": "100%",
                   }
                 }
-                testID={undefined}
               >
                 <View
                   style={
@@ -602,7 +555,6 @@ exports[`renders correctly 1`] = `
                   <Text
                     accessible={true}
                     allowFontScaling={true}
-                    collapsable={undefined}
                     ellipsizeMode="tail"
                     style={
                       Object {
@@ -665,14 +617,8 @@ exports[`renders correctly 1`] = `
               }
             >
               <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
                 accessible={true}
                 data-test="input-main"
-                hitSlop={undefined}
-                nativeID={undefined}
-                onLayout={undefined}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -696,7 +642,6 @@ exports[`renders correctly 1`] = `
                     "width": "100%",
                   }
                 }
-                testID={undefined}
               >
                 <View
                   style={
@@ -710,7 +655,6 @@ exports[`renders correctly 1`] = `
                   <Text
                     accessible={true}
                     allowFontScaling={true}
-                    collapsable={undefined}
                     ellipsizeMode="tail"
                     style={
                       Object {
@@ -800,15 +744,8 @@ exports[`renders correctly 1`] = `
             }
           >
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -816,8 +753,6 @@ exports[`renders correctly 1`] = `
               onResponderTerminationRequest={[Function]}
               onStartShouldSetResponder={[Function]}
               style={null}
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
                 pointerEvents="box-only"
@@ -937,15 +872,8 @@ exports[`renders correctly 1`] = `
             }
           >
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -953,8 +881,6 @@ exports[`renders correctly 1`] = `
               onResponderTerminationRequest={[Function]}
               onStartShouldSetResponder={[Function]}
               style={null}
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
                 pointerEvents="box-only"

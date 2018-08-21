@@ -1,4 +1,3 @@
-import Expo from "expo";
 import { createStackNavigator } from "react-navigation";
 
 import Login from "./pages/Login";
@@ -15,4 +14,4 @@ const routes = createStackNavigator(
   }
 );
 
-export default Expo.registerRootComponent(routes);
+export default routes;

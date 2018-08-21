@@ -1,15 +1,17 @@
 {
-  "presets": ["babel-preset-expo"],
+  "presets": ["react-native"],
   "plugins": [
     [
-      "module-alias",
-      [
-        { "src": "./src/components", "expose": "components" },
-        { "src": "./src/pages", "expose": "pages" },
-        { "src": "./assets", "expose": "assets" },
-        { "src": "./src/theme.js", "expose": "theme" },
-        { "src": "./src/utils", "expose": "utils" }
-      ]
+      "module-resolver",
+      {
+        "alias": {
+          "components": "./src/components",
+          "pages": "./src/pages",
+          "assets": "./assets",
+          "theme": "./src/theme.js",
+          "utils": "./src/utils"
+        }
+      }
     ]
   ],
   "env": {

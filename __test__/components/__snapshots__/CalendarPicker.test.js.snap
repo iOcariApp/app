@@ -28,7 +28,6 @@ exports[`renders correctly 1`] = `
   }
 >
   <View
-    collapsable={undefined}
     pointerEvents="none"
     style={
       Object {
@@ -44,16 +43,8 @@ exports[`renders correctly 1`] = `
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -71,12 +62,9 @@ exports[`renders correctly 1`] = `
           "width": 750,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     />
   </View>
   <View
-    collapsable={undefined}
     style={
       Object {
         "backgroundColor": "transparent",
@@ -124,12 +112,7 @@ exports[`renders correctly 1`] = `
             }
           >
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
               hitSlop={
                 Object {
                   "bottom": 20,
@@ -139,8 +122,6 @@ exports[`renders correctly 1`] = `
                 }
               }
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -154,10 +135,13 @@ exports[`renders correctly 1`] = `
                 }
               }
               testID="native.calendar.CHANGE_MONTH_LEFT_ARROW"
-              tvParallaxProperties={undefined}
             >
               <Image
-                source={1}
+                source={
+                  Object {
+                    "testUri": "../../react-native-calendars/src/calendar/img/previous.png",
+                  }
+                }
                 style={
                   Object {
                     "tintColor": "#00adf5",
@@ -191,12 +175,7 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
               hitSlop={
                 Object {
                   "bottom": 20,
@@ -206,8 +185,6 @@ exports[`renders correctly 1`] = `
                 }
               }
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -221,10 +198,13 @@ exports[`renders correctly 1`] = `
                 }
               }
               testID="native.calendar.CHANGE_MONTH_RIGHT_ARROW"
-              tvParallaxProperties={undefined}
             >
               <Image
-                source={1}
+                source={
+                  Object {
+                    "testUri": "../../react-native-calendars/src/calendar/img/next.png",
+                  }
+                }
                 style={
                   Object {
                     "tintColor": "#00adf5",
@@ -416,16 +396,8 @@ exports[`renders correctly 1`] = `
               }
             />
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -440,8 +412,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -464,16 +434,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -488,8 +450,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -512,16 +472,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -536,8 +488,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -560,16 +510,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -584,8 +526,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -608,16 +548,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -632,8 +564,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -667,16 +597,8 @@ exports[`renders correctly 1`] = `
             }
           >
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -691,8 +613,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -715,16 +635,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -739,8 +651,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -763,16 +673,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -787,8 +689,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -811,16 +711,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -835,8 +727,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -859,16 +749,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -883,8 +765,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -907,16 +787,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -931,8 +803,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -955,16 +825,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -979,8 +841,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1014,16 +874,8 @@ exports[`renders correctly 1`] = `
             }
           >
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1038,8 +890,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1062,16 +912,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1086,8 +928,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1110,16 +950,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1134,8 +966,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1158,16 +988,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1182,8 +1004,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1206,16 +1026,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1230,8 +1042,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1254,16 +1064,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1278,8 +1080,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1302,16 +1102,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1326,8 +1118,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1361,16 +1151,8 @@ exports[`renders correctly 1`] = `
             }
           >
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1385,8 +1167,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1409,16 +1189,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1434,8 +1206,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1461,16 +1231,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1485,8 +1247,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1509,16 +1269,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1533,8 +1285,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1557,16 +1307,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1581,8 +1323,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1605,16 +1345,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1629,8 +1361,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1653,16 +1383,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1677,8 +1399,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1712,16 +1432,8 @@ exports[`renders correctly 1`] = `
             }
           >
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1736,8 +1448,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1760,16 +1470,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1784,8 +1486,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1808,16 +1508,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1832,8 +1524,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1856,16 +1546,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1880,8 +1562,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -1904,16 +1584,8 @@ exports[`renders correctly 1`] = `
               </Text>
             </View>
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              collapsable={undefined}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -1928,8 +1600,6 @@ exports[`renders correctly 1`] = `
                   "width": 32,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -2027,15 +1697,8 @@ exports[`renders correctly 1`] = `
               }
             >
               <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
                 accessible={true}
-                hasTVPreferredFocus={undefined}
-                hitSlop={undefined}
                 isTVSelectable={true}
-                nativeID={undefined}
-                onLayout={undefined}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -2043,8 +1706,6 @@ exports[`renders correctly 1`] = `
                 onResponderTerminationRequest={[Function]}
                 onStartShouldSetResponder={[Function]}
                 style={null}
-                testID={undefined}
-                tvParallaxProperties={undefined}
               >
                 <View
                   pointerEvents="box-only"
@@ -2161,15 +1822,8 @@ exports[`renders correctly 1`] = `
               }
             >
               <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
                 accessible={true}
-                hasTVPreferredFocus={undefined}
-                hitSlop={undefined}
                 isTVSelectable={true}
-                nativeID={undefined}
-                onLayout={undefined}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
                 onResponderRelease={[Function]}
@@ -2177,8 +1831,6 @@ exports[`renders correctly 1`] = `
                 onResponderTerminationRequest={[Function]}
                 onStartShouldSetResponder={[Function]}
                 style={null}
-                testID={undefined}
-                tvParallaxProperties={undefined}
               >
                 <View
                   pointerEvents="box-only"

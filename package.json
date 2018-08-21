@@ -1,31 +1,12 @@
 {
-  "name": "app",
-  "version": "0.1.0",
+  "name": "iOcari",
+  "version": "0.0.1",
   "private": true,
-  "devDependencies": {
-    "babel-eslint": "^8.2.6",
-    "babel-plugin-module-alias": "^1.6.0",
-    "enzyme": "^3.4.0",
-    "enzyme-adapter-react-16": "^1.2.0",
-    "enzyme-react-16-adapter-setup": "^0.1.0",
-    "eslint": "^5.3.0",
-    "eslint-plugin-react": "^7.10.0",
-    "eslint-plugin-react-native": "^3.2.1",
-    "husky": "^0.14.3",
-    "jest-enzyme": "^6.0.2",
-    "jest-expo": "~27.0.0",
-    "plop": "^2.1.0",
-    "react-dom": "^16.4.2",
-    "react-native-scripts": "1.14.0",
-    "react-test-renderer": "16.3.1"
-  },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "react-native-scripts start",
-    "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
-    "test": "jest --coverage",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "test": "jest",
     "test:watch": "jest --watch",
     "test:update": "jest --updateSnapshot",
     "prettier": "prettier --config \"./.prettierrc.js\" --write \"./src/**/*.@(js|scss)\"",
@@ -35,8 +16,37 @@
     "postinstall": "rm -rf .git/hooks/pre-push && node node_modules/husky/bin/install.js && rm -rf .git/hooks/pre-commit",
     "plop": "plop"
   },
+  "dependencies": {
+    "babel-plugin-module-alias": "^1.6.0",
+    "react": "16.3.1",
+    "react-native": "0.55.4",
+    "react-native-calendars": "^1.20.0",
+    "react-native-elements": "^0.19.1",
+    "react-native-popup-dialog": "^0.15.0",
+    "react-native-vector-icons": "^5.0.0",
+    "react-navigation": "^2.11.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "babel-jest": "23.4.2",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-preset-react-native": "^4.0.0",
+    "enzyme": "^3.4.4",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "enzyme-react-16-adapter-setup": "^0.1.0",
+    "eslint": "^5.4.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react-native": "^3.2.1",
+    "husky": "^0.14.3",
+    "jest": "23.5.0",
+    "jest-enzyme": "^6.0.3",
+    "jest-react-native": "^18.0.0",
+    "plop": "^2.1.0",
+    "react-dom": "^16.4.2",
+    "react-test-renderer": "16.3.1"
+  },
   "jest": {
-    "preset": "jest-expo",
+    "preset": "react-native",
     "cacheDirectory": "./cache",
     "coverageThreshold": {
       "global": {
@@ -48,14 +58,5 @@
       "enzyme-react-16-adapter-setup",
       "./__test__/setup.js"
     ]
-  },
-  "dependencies": {
-    "expo": "^27.0.1",
-    "react": "16.3.1",
-    "react-native": "~0.55.2",
-    "react-native-calendars": "^1.20.0",
-    "react-native-elements": "^0.19.1",
-    "react-native-popup-dialog": "^0.15.0",
-    "react-navigation": "^2.11.2"
   }
 }

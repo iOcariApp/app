@@ -2,7 +2,6 @@
 
 exports[`applies \`color\` prop 1`] = `
 <View
-  collapsable={undefined}
   style={
     Object {
       "backgroundColor": "black",
@@ -20,7 +19,6 @@ exports[`applies \`color\` prop 1`] = `
 
 exports[`renders correctly 1`] = `
 <View
-  collapsable={undefined}
   style={
     Object {
       "backgroundColor": "#4DB6AC",

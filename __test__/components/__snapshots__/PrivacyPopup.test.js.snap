@@ -28,7 +28,6 @@ exports[`renders correctly 1`] = `
   }
 >
   <View
-    collapsable={undefined}
     pointerEvents="none"
     style={
       Object {
@@ -44,16 +43,8 @@ exports[`renders correctly 1`] = `
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
       accessible={true}
-      collapsable={undefined}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
       isTVSelectable={true}
-      nativeID={undefined}
-      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -71,12 +62,9 @@ exports[`renders correctly 1`] = `
           "width": 750,
         }
       }
-      testID={undefined}
-      tvParallaxProperties={undefined}
     />
   </View>
   <View
-    collapsable={undefined}
     style={
       Object {
         "backgroundColor": "#ffffff",
@@ -106,7 +94,11 @@ exports[`renders correctly 1`] = `
       }
     >
       <Image
-        source={1}
+        source={
+          Object {
+            "testUri": "../../../assets/privacy-shield/privacy-shield.png",
+          }
+        }
       />
       <Text
         accessible={true}
@@ -189,15 +181,8 @@ exports[`renders correctly 1`] = `
             }
           >
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -205,8 +190,6 @@ exports[`renders correctly 1`] = `
               onResponderTerminationRequest={[Function]}
               onStartShouldSetResponder={[Function]}
               style={null}
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
                 pointerEvents="box-only"
@@ -326,15 +309,8 @@ exports[`renders correctly 1`] = `
             }
           >
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
               accessible={true}
-              hasTVPreferredFocus={undefined}
-              hitSlop={undefined}
               isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -342,8 +318,6 @@ exports[`renders correctly 1`] = `
               onResponderTerminationRequest={[Function]}
               onStartShouldSetResponder={[Function]}
               style={null}
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <View
                 pointerEvents="box-only"

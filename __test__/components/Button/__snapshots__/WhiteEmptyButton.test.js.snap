@@ -28,15 +28,8 @@ exports[`passes down unused props 1`] = `
   }
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -44,8 +37,6 @@ exports[`passes down unused props 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={null}
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
       pointerEvents="box-only"
@@ -158,15 +149,8 @@ exports[`renders correctly 1`] = `
   }
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -174,8 +158,6 @@ exports[`renders correctly 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={null}
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
       pointerEvents="box-only"

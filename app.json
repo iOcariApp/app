@@ -1,21 +1,4 @@
 {
-  "expo": {
-    "name": "iOcari",
-    "icon": "./assets/icon.png",
-    "version": "0.0.1",
-    "slug": "iocari",
-    "ios": {
-      "bundleIdentifier": "com.thebluecorp.iocari"
-    },
-    "android": {
-      "package": "com.thebluecorp.iocari"
-    },
-    "sdkVersion": "27.0.0",
-    "entryPoint": "./src/Routes.js",
-    "splash": {
-      "image": "./assets/splash.png",
-      "backgroundColor": "#000000",
-      "resizeMode": "cover"
-    }
-  }
+  "name": "iOcari",
+  "displayName": "iOcari"
 }
