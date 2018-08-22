@@ -1,15 +1,15 @@
 import { createStackNavigator } from "react-navigation";
 
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Main from "./Main";
+import Auth from "./Auth";
 
 const routes = createStackNavigator(
   {
-    Login: Login,
-    Register: Register,
+    Main: Main,
+    Auth: Auth,
   },
   {
-    initialRouteName: "Login",
+    initialRouteName: "Main",
     headerMode: "none",
   }
 );
