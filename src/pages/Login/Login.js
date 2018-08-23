@@ -4,7 +4,7 @@ import { View, StatusBar, Image, Text } from "react-native";
 import { SocialIcon } from "react-native-elements";
 import styles from "./Login.style";
 
-import plainLogo from "assets/plain-logo/plain-logo.png";
+import plainLogo from "images/plain-logo/plain-logo.png";
 
 import TextInput from "components/TextInput";
 import Button from "components/Button";

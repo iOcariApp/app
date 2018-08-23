@@ -6,7 +6,7 @@ import availableNickname from "utils/validation/availableNickname";
 import validEmail from "utils/validation/validEmail";
 import samePassword from "utils/validation/samePassword";
 
-import plainLogo from "assets/plain-logo/plain-logo.png";
+import plainLogo from "images/plain-logo/plain-logo.png";
 
 import Page1 from "./Page1";
 import Page2 from "./Page2";

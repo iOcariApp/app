@@ -7,10 +7,11 @@
         "alias": {
           "components": "./src/components",
           "pages": "./src/pages",
-          "assets": "./assets",
+          "images": "./src/images",
           "theme": "./src/theme.js",
           "utils": "./src/utils"
-        }
+        },
+        "extensions": [".ios.js", ".android.js", ".js", ".json"]
       }
     ]
   ],

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { View, Text, Image } from "react-native";
 import styles from "./PrivacyPopup.style";
 
-import privacyShield from "assets/privacy-shield/privacy-shield.png";
+import privacyShield from "images/privacy-shield/privacy-shield.png";
 
 import PopupDialog, { SlideAnimation } from "react-native-popup-dialog";
 

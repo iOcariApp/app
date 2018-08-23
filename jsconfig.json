@@ -5,7 +5,7 @@
       "components/*": ["./src/components/*"],
       "pages/*": ["./src/pages/*"],
       "theme": ["./src/theme.js"],
-      "assets/*": ["./assets/*"],
+      "images/*": ["./src/images/*"],
       "utils/*": ["./src/utils/*"]
     }
   },
