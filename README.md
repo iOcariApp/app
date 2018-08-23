@@ -113,6 +113,11 @@ It is not supported yet.
 
 [https://github.com/airbnb/enzyme/issues/1436](https://github.com/airbnb/enzyme/issues/1436).
 
+**Uninstalling linked library**
+
+1. `react-native unlink <library-name>`
+2. `npm uninstall --save <library-name>``
+
 ## Errors and solutions
 
 **"Trying to add a root view with an explicit id already set"**
@@ -156,6 +161,10 @@ jest.mock("Animated", () => {
 });
 ```
 
+**Could not resolve all dependencies for configuration ':app:\_debugApk'. Configuration with name 'default' not found.**
+
+=> You have uninstalled linked libraries without unlinking them. You can see them at `android/build.gradle` so you can install them again, unlink them and reinstall.
+
 ## Resources
 
 - [Official docs](https://facebook.github.io/react-native/docs/getting-started)
@@ -163,3 +172,6 @@ jest.mock("Animated", () => {
 - [react-native-elements components](https://react-native-training.github.io/react-native-elements/docs/0.19.0/overview.html)
 - [React made native easy](https://www.reactnative.guide/)
 - [How to build using Expo](https://docs.expo.io/versions/latest/distribution/building-standalone-apps#__next)
+- [How to build for Android](https://facebook.github.io/react-native/docs/signed-apk-android.html)
+- [How to build for iOS](https://facebook.github.io/react-native/docs/running-on-device.html#building-your-app-for-production)
+- [Hide APK keystore for Android](https://stackoverflow.com/a/33218300/5381414)
