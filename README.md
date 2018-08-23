@@ -165,6 +165,10 @@ jest.mock("Animated", () => {
 
 => You have uninstalled linked libraries without unlinking them. You can see them at `android/build.gradle` so you can install them again, unlink them and reinstall.
 
+**Failed to finalize session : INSTALL_FAILED_UPDATE_INCOMPATIBLE: Package com.iocari signatures do not match previously installed version; ignoring!**
+
+=> Uninstall the app on the target device and run `react-native ios/android` again.
+
 ## Resources
 
 - [Official docs](https://facebook.github.io/react-native/docs/getting-started)

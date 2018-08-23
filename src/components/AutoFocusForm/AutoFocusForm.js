@@ -2,6 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { View, TextInput as Input } from "react-native";
 
+import MyTextInput from "components/TextInput";
+import DualRow from "components/DualRow";
+
 export class TextInput extends React.Component {
   ref = node => {
     const { refCallback, inputRef } = this.props;
@@ -33,7 +36,7 @@ export class TextInput extends React.Component {
 TextInput.propTypes = {
   onSubmitEditing: PropTypes.func,
   onEnter: PropTypes.func,
-  inputRef: PropTypes.func,
+  inputRef: PropTypes.func.isRequired,
   refCallback: PropTypes.func,
 };
 
@@ -51,13 +54,13 @@ export class Form extends React.Component {
         count = count + this.getTextInputCount(child);
         return;
       }
-      if (child.type.name === "DualRow") {
+      if (child.type === DualRow) {
         const { left, right } = child.props;
         count = count + this.getTextInputCount(left);
         count = count + this.getTextInputCount(right);
         return;
       }
-      if (child.type.name !== "MyTextInput") {
+      if (child.type !== MyTextInput) {
         return;
       }
 
@@ -86,7 +89,7 @@ export class Form extends React.Component {
           children: newChildren,
         });
       }
-      if (child.type.name === "DualRow") {
+      if (child.type === DualRow) {
         const { left, right } = child.props;
 
         // Insert TextInputs on left
@@ -109,7 +112,7 @@ export class Form extends React.Component {
           right: rightModified,
         });
       }
-      if (child.type.name !== "MyTextInput") {
+      if (child.type !== MyTextInput) {
         return child;
       }
 
