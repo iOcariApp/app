@@ -48,6 +48,7 @@
   "jest": {
     "preset": "react-native",
     "cacheDirectory": "./cache",
+    "collectCoverage": true,
     "coverageThreshold": {
       "global": {
         "statements": 80
