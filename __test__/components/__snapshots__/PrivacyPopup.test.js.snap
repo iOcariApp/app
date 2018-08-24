@@ -96,7 +96,7 @@ exports[`renders correctly 1`] = `
       <Image
         source={
           Object {
-            "testUri": "../../../assets/privacy-shield/privacy-shield.png",
+            "testUri": "../../../src/images/privacy-shield/privacy-shield.png",
           }
         }
       />

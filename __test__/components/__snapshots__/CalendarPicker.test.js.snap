@@ -1200,7 +1200,6 @@ exports[`renders correctly 1`] = `
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": undefined,
                   "height": 32,
                   "opacity": 1,
                   "width": 32,
@@ -1220,9 +1219,6 @@ exports[`renders correctly 1`] = `
                       "fontSize": 16,
                       "fontWeight": "300",
                       "marginTop": 6,
-                    },
-                    Object {
-                      "color": "#00adf5",
                     },
                   ]
                 }
@@ -1318,6 +1314,7 @@ exports[`renders correctly 1`] = `
               style={
                 Object {
                   "alignItems": "center",
+                  "backgroundColor": undefined,
                   "height": 32,
                   "opacity": 1,
                   "width": 32,
@@ -1337,6 +1334,9 @@ exports[`renders correctly 1`] = `
                       "fontSize": 16,
                       "fontWeight": "300",
                       "marginTop": 6,
+                    },
+                    Object {
+                      "color": "#00adf5",
                     },
                   ]
                 }
