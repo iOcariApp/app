@@ -9,7 +9,7 @@ export class TextInput extends React.Component {
   ref = node => {
     const { refCallback, inputRef } = this.props;
     if (refCallback) refCallback(node);
-    inputRef(node);
+    if (inputRef) inputRef(node);
   };
 
   onSubmitEditing = () => {
@@ -36,7 +36,7 @@ export class TextInput extends React.Component {
 TextInput.propTypes = {
   onSubmitEditing: PropTypes.func,
   onEnter: PropTypes.func,
-  inputRef: PropTypes.func.isRequired,
+  inputRef: PropTypes.func,
   refCallback: PropTypes.func,
 };
 
